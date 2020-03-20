@@ -1,4 +1,4 @@
-venueList = [
+const venueList = [
 {   name: "cornubia",
     food: false,
     pizza: false,
@@ -367,4 +367,75 @@ venueList = [
     noise: "medium",
     score: 0,
 },
-]
+];
+//array of every possible venue as objects
+
+var userResults = {};
+
+function submitUserResults() {
+// if radio is checked, add to userResults object
+
+};
+
+function calculateTotalScore() {
+    submitUserResults()
+    calculateFoodScore()
+    calculatePizzaScore()
+    calculateDancingScore()
+    calculateDrinksScore()
+    calculateGamesScore()
+    calculateWaitScore()
+    calculateCrowdedScore()
+    calculateTraditionalScore()
+    calculateDiveScore()
+    calculateLiveMusicScore()
+    calculateSpoonsScore()
+    calculateNoiseScore()
+//calculates the points awarded by each question
+};
+
+//compare user results with scores of venue list array
+function calculateFoodScore() {
+
+};
+function calculatePizzaScore() {
+    for(var i = 0; i < venueList.length; i++) {
+    if(venueList[i].pizza === true && userResults.pizza === true){
+    venueList[i].score += 10
+    venueList[i].pizzascore = 10
+ }
+}
+};
+function calculateDancingScore() {
+
+};
+function calculateDrinksScore() {
+    
+};
+function calculateGamesScore() {
+
+};
+function calculateWaitScore() {
+    
+};
+function calculateCrowdedScore() {
+    
+};
+function calculateTraditionalScore() {
+    
+};
+function calculateDiveScore() {
+    
+};
+function calculateLiveMusicScore() {
+    
+};
+function calculateSpoonsScore() {
+    
+};
+function calculateNoiseScore() {
+    
+};
+function sortListByScore() {
+    venueList.sort(function(x, y){return x.score-y.score})
+}
