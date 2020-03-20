@@ -10,4 +10,5 @@ h1 {
 .question {
     width: 400px;
     margin: 0 auto;
+    border: 1px black solid;
 }
