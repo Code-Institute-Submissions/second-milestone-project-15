@@ -377,6 +377,55 @@ function submitUserResults() {
 
 };
 
+function submitFoodResult() {
+
+}
+
+function submitPizzaResult() {
+
+}
+
+function submitDancingResult() {
+
+}
+
+function submitDrinksResult() {
+
+}
+
+function submitGamesResult() {
+
+}
+
+function submitWaitResult() {
+
+}
+
+function submitCrowdedResult() {
+
+}
+
+function submitTraditionalResult() {
+
+}
+
+function submitDiveResult() {
+
+}
+
+function submitLiveMusicResult() {
+
+}
+
+function submitSpoonsResult() {
+
+}
+
+function submitNoiseResult() {
+
+}
+
+
 function calculateTotalScore() {
     submitUserResults()
     calculateFoodScore()
