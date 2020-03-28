@@ -7,8 +7,24 @@ h1 {
     text-align: center;
 }
 
-.question {
+.question-slide {
     width: 400px;
+    height: 550px;
     margin: 0 auto;
-    border: 1px black solid;
+    text-align: center;
+    background-color: white;
+}
+
+.question {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.options {
+    display: inline-block;
+}
+
+.options label {
+    display: block;
+    padding-bottom: 1rem;
 }

@@ -13,89 +13,164 @@
     <div id="start">
     <button id="startButton">START QUIZ</button>
     </div>
+
     <div id="questionsContainer">
-    <div class="question">
-        Question <span>1</span>
-        Do you want to have dinner at the venue?
-    <label><input type="radio" id="foodYes" name="food">Yes</label>
-    <label><input type="radio" id="foodNo" name="food">No</label>
+
+    <div class="question-slide">
+            <div class="question">
+            <h3>Question <span>1</span> of 12</h3>
+            <p>Do you want to have dinner at the venue?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="foodYes" name="food">Yes</label>
+            <label><input type="radio" id="foodNo" name="food">No</label>
+        </div>
     </div>
 
-    <div class="question">Question <span>2</span>
-        How about pizza?
-    <label><input type="radio" id="pizzaYes" name="pizzaOrDance">Yes</label>
-    <label><input type="radio" id="pizzaNo" name="pizzaOrDance">No</label></div>
-
-    <div class="question">Question <span>2</span>
-        Do you want to have a dance?
-    <label><input type="radio" id="danceYes" name="pizzaOrDance">Yes</label>
-    <label><input type="radio" id="danceNo" name="pizzaOrDance">No</label></div>
-
-    <div class="question">Question <span>3</span>
-        What would you like to drink?
-    <label><input type="radio" id="lager" name="drink">Lager</label>
-    <label><input type="radio" id="wine" name="drink">Wine</label>
-    <label><input type="radio" id="cocktail" name="drink">Cocktails</label>
-    <label><input type="radio" id="ipa" name="drink">IPAs</label>
-    <label><input type="radio" id="cider" name="drink">Cider</label>
-    <label><input type="radio" id="drinkOther" name="drink">Other</label>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>2</span> of 12</h3>
+            <p>How about pizza?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="pizzaYes" name="pizzaOrDance">Yes</label>
+            <label><input type="radio" id="pizzaNo" name="pizzaOrDance">No</label>
+        </div>
     </div>
 
-    <div class="question">Question <span>4</span>
-        How important is outside seating?
-    <label><input type="radio" id="outsideVery" name="outside">Very important</label>
-    <label><input type="radio" id="outsideFairly" name="outside">Fairly important</label>
-    <label><input type="radio" id="outsideNot" name="outside">Not important</label>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>2</span> of 12</h3>
+            <p>Do you want to have a dance?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="danceYes" name="pizzaOrDance">Yes</label>
+            <label><input type="radio" id="danceNo" name="pizzaOrDance">No</label>
+        </div>
     </div>
 
-    <div class="question">Question <span>5</span>
-        Which of these games do you prefer?
-    <label><input type="radio" id="board" name="games">Board games</label>
-    <label><input type="radio" id="pool" name="games">Pool</label>
-    <label><input type="radio" id="pingpong" name="games">Ping Pong</label>
-    <label><input type="radio" id="gamesNo" name="games">Not looking to play games</label></div>
-
-    <div class="question">Question <span>6</span>
-        Are you a patient person who doesn't mind waiting?
-    <label><input type="radio" id="waitHigh" name="wait">Yeah I'm pretty Zen</label>
-    <label><input type="radio" id="waitMedium" name="wait">I can wait a little bit</label>
-    <label><input type="radio" id="waitLow" name="wait">Absolutely not</label>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>3</span> of 12</h3>
+            <p>What would you like to drink?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="lager" name="drink">Lager</label>
+            <label><input type="radio" id="wine" name="drink">Wine</label>
+            <label><input type="radio" id="cocktail" name="drink">Cocktails</label>
+            <label><input type="radio" id="ipa" name="drink">IPAs</label>
+            <label><input type="radio" id="cider" name="drink">Cider</label>
+            <label><input type="radio" id="drinkOther" name="drink">Other</label>
+        </div>
     </div>
 
-    <div class="question">Question <span>7</span>
-        Do you mind if it's crowded?
-    <label><input type="radio" id="crowdHigh" name="crowded">No, that's fine</label>
-    <label><input type="radio" id="crowdMedium" name="crowded">Not ideal, but it's to be expected</label>
-    <label><input type="radio" id="crowdLow" name="crowded">Yes, I prefer places that are less busy</label></div>
-
-    <div class="question">Question <span>8</span>
-        How about if it's noisy?
-    <label><input type="radio" id="noiseHigh" name="noise">I don't mind having to shout</label>
-    <label><input type="radio" id="noiseMedium" name="noise">It only bothers me a bit</label>
-    <label><input type="radio" id="noiseLow" name="noise">I want to be somewhere relatively quiet</label>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>4</span> of 12</h3>
+            <p>How important is outside seating?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="outsideVery" name="outside"> Very important</label>
+            <label><input type="radio" id="outsideFairly" name="outside"> Fairly important</label>
+            <label><input type="radio" id="outsideNot" name="outside"> Not important</label>
+        </div>
     </div>
 
-    <div class="question">Question <span>9</span>
-        Do you want to listen to live music?
-    <label><input type="radio" id="musicYes" name="livemusic">Yes</label>
-    <label><input type="radio" id="musicNo" name="livemusic">No</label></div>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>5</span> of 12</h3>
+            <p>Which of these games do you prefer?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="board" name="games"> Board games</label>
+            <label><input type="radio" id="pool" name="games"> Pool</label>
+            <label><input type="radio" id="pingpong" name="games"> Ping Pong</label>
+            <label><input type="radio" id="gamesNo" name="games"> Not looking to play games</label>
+        </div>
+    </div>
 
-    <div class="question">Question <span>10</span>
-        How do you feel about Wetherspoons?
-    <label><input type="radio" id="spoonsLove" name="spoons">I love a Spoons</label>
-    <label><input type="radio" id="spoonsMiddle" name="spoons">It's OK</label>
-    <label><input type="radio" id="spoonsNo" name="spoons">No Thanks</label></div>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>6</span> of 12</h3>
+            <p>Are you a patient person who doesn't mind waiting?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="waitHigh" name="wait"> Yeah I'm pretty Zen</label>
+            <label><input type="radio" id="waitMedium" name="wait"> I can wait a little bit</label>
+            <label><input type="radio" id="waitLow" name="wait"> Absolutely not</label>
+        </div>
+    </div>
 
-    <div class="question">Question <span>11</span>
-        Do you like dive bars?
-    <label><input type="radio" id="diveYes" name="dive">Yes</label>
-    <label><input type="radio" id="diveNo" name="dive">No</label></div>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>7</span> of 12</h3>
+            <p>Do you mind if it's crowded?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="crowdHigh" name="crowded"> No, that's fine</label>
+            <label><input type="radio" id="crowdMedium" name="crowded"> Not ideal, but it's to be expected</label>
+            <label><input type="radio" id="crowdLow" name="crowded"> Yes, I prefer places that are less busy</label>
+        </div>
+    </div>
 
-    <div class="question">Question <span>12</span>
-        Do you want to go to a traditional pub?
-    <label><input type="radio" id="traditionalYes" name="traditional">Yes</label>
-    <label><input type="radio" id="traditionalMiddle" name="traditional">Don't mind</label>
-    <label><input type="radio" id="traditionalNo" name="traditional">No</label></div>
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>8</span> of 12</h3>
+            <p>How about if it's noisy?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="noiseHigh" name="noise"> I don't mind having to shout</label>
+            <label><input type="radio" id="noiseMedium" name="noise"> It only bothers me a bit</label>
+            <label><input type="radio" id="noiseLow" name="noise"> I want to be somewhere relatively quiet</label>
+        </div>
+    </div>
+
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>9</span> of 12</h3>
+            <p>Do you want to listen to live music?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="musicYes" name="livemusic"> Yes</label>
+            <label><input type="radio" id="musicNo" name="livemusic"> No</label>
+        </div>
+    </div>
+
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>10</span> of 12</h3>
+            <p>How do you feel about Wetherspoons?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="spoonsLove" name="spoons"> I love a Spoons</label>
+            <label><input type="radio" id="spoonsMiddle" name="spoons"> It's OK</label>
+            <label><input type="radio" id="spoonsNo" name="spoons"> No thanks</label>
+        </div>
+    </div>
+
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>11</span> of 12</h3>
+            <p>Do you like dive bars?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="diveYes" name="dive"> Yes</label>
+            <label><input type="radio" id="diveNo" name="dive"> No</label>
+        </div>
+    </div>
+
+    <div class="question-slide">
+        <div class="question">
+            <h3>Question <span>12</span> of 12</h3>
+            <p>Do you want to go to a traditional pub?</p>
+        </div>
+        <div class="options">
+            <label><input type="radio" id="traditionalYes" name="traditional"> Yes</label>
+            <label><input type="radio" id="traditionalMiddle" name="traditional"> Don't mind</label>
+            <label><input type="radio" id="traditionalNo" name="traditional"> No</label>
+        </div>   
+    </div>
+    
     </div>
 
     <button id="previousButton">Previous</button>
