@@ -1,5 +1,5 @@
 const venueList = [
-{   name: "cornubia",
+{   name: "The Cornubia",
     food: false,
     pizza: false,
     dancing: false,
@@ -15,7 +15,7 @@ const venueList = [
     noise: "low",
     score: 0,
 },
-{   name: "renatos",
+{   name: "Renatos",
     food: true,
     pizza: true,
     dancing: false,
@@ -31,7 +31,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "lhg",
+{   name: "Left Handed Giant",
     food: true,
     pizza: true,
     dancing: false,
@@ -47,7 +47,7 @@ const venueList = [
     noise: "high",
     score: 0,
 },
-{   name: "ostrich",
+{   name: "The Ostrich",
     food: true,
     pizza: false,
     dancing: false,
@@ -63,7 +63,7 @@ const venueList = [
     noise: "low",
     score: 0,
 },
-{   name: "goldenguinea",
+{   name: "The Golden Guinea",
     food: false,
     pizza: false,
     dancing: false,
@@ -79,7 +79,7 @@ const venueList = [
     noise: "low",
     score: 0,
 },
-{   name: "navyvolunteer",
+{   name: "The Famous Royal Navy Volunteer",
     food: true,
     pizza: false,
     dancing: false,
@@ -95,7 +95,7 @@ const venueList = [
     noise: "high",
     score: 0,
 },
-{   name: "bocabar",
+{   name: "BocaBar Finzels Reach",
     food: true,
     pizza: true,
     dancing: false,
@@ -111,7 +111,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "brewdog",
+{   name: "BrewDog",
     food: true,
     pizza: true,
     dancing: false,
@@ -127,7 +127,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "oldduke",
+{   name: "The Old Duke",
     food: false,
     pizza: false,
     dancing: false,
@@ -143,7 +143,7 @@ const venueList = [
     noise: "high",
     score: 0,
 },
-{   name: "kongs",
+{   name: "Kongs",
     food: false,
     pizza: false,
     dancing: true,
@@ -159,7 +159,7 @@ const venueList = [
     noise: "high",
     score: 0,
 },
-{   name: "beeremporium",
+{   name: "The Beer Emporium",
     food: true,
     pizza: true,
     dancing: false,
@@ -175,7 +175,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "smallbar",
+{   name: "Small Bar",
     food: false,
     pizza: false,
     dancing: false,
@@ -191,7 +191,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "thebank",
+{   name: "The Bank Tavern",
     food: false,
     pizza: false,
     dancing: true,
@@ -207,7 +207,7 @@ const venueList = [
     noise: "low",
     score: 0,
 },
-{   name: "commercialrooms",
+{   name: "The Commercial Rooms",
     food: false,
     pizza: false,
     dancing: false,
@@ -223,7 +223,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "bambalan",
+{   name: "Bambalan",
     food: true,
     pizza: false,
     dancing: false,
@@ -239,7 +239,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "mothersruin",
+{   name: "The Mother's Ruin",
     food: false,
     pizza: false,
     dancing: true,
@@ -255,7 +255,7 @@ const venueList = [
     noise: "high",
     score: 0,
 },
-{   name: "oldfishmarket",
+{   name: "The Old Fish Market",
     food: true,
     pizza: false,
     dancing: false,
@@ -271,7 +271,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "thestable",
+{   name: "The Stable",
     food: true,
     pizza: true,
     dancing: false,
@@ -287,7 +287,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "brewhouse",
+{   name: "King Street Brew House",
     food: true,
     pizza: true,
     dancing: false,
@@ -303,7 +303,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "shakespeare",
+{   name: "Ye Shakespeare",
     food: true,
     pizza: false,
     dancing: false,
@@ -319,7 +319,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "knightstemplar",
+{   name: "The Knights Templar",
     food: true,
     pizza: false,
     dancing: false,
@@ -335,7 +335,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "bayhorse",
+{   name: "The Bayhorse",
     food: false,
     pizza: false,
     dancing: false,
@@ -351,7 +351,7 @@ const venueList = [
     noise: "medium",
     score: 0,
 },
-{   name: "sidings",
+{   name: "The Sidings",
     food: true,
     pizza: true,
     dancing: false,
@@ -370,7 +370,18 @@ const venueList = [
 ];
 //array of every possible venue as objects
 
+// var topThreeVenues = [];
 var userResults = {};
+
+var submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click", function() {
+    console.log("clicked the button!");
+    submitUserResults();
+    calculateTotalScore();
+    sortListByScore();
+    displayResults();
+})
+
 
 function submitUserResults() {
 // if radio is checked, add to userResults object
@@ -519,6 +530,7 @@ function submitNoiseResult() {
 
 
 function calculateTotalScore() {
+    resetScoresToZero()
     addFoodScore()
     addPizzaScore()
     addDancingScore()
@@ -531,9 +543,15 @@ function calculateTotalScore() {
     addLiveMusicScore()
     addSpoonsScore()
     addNoiseScore()
+    addOutsideScore()
 //calculates the points awarded by each question
 };
 
+function resetScoresToZero() {
+    for(var i = 0; i < venueList.length; i++) {
+        venueList[i].score = 0;
+    }
+}
 
 
 //compare user results with scores of venue list array
@@ -675,5 +693,14 @@ function addNoiseScore() {
 };
 
 function sortListByScore() {
-    venueList.sort(function(x, y){return x.score-y.score});
+    venueList.sort(function(x, y){return y.score - x.score});
 };
+
+
+function displayResults() {
+    var topThreeVenues = venueList.slice(0,3);
+    var firstPlace = topThreeVenues[0].name;
+    var secondPlace = topThreeVenues[1].name;
+    var thirdPlace = topThreeVenues[2].name;
+    console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
+}
