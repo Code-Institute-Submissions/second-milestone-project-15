@@ -374,78 +374,112 @@ var userResults = {};
 
 function submitUserResults() {
 // if radio is checked, add to userResults object
-
+    submitFoodResult()
+    submitPizzaResult()
+    submitDancingResult()
+    submitDrinksResult()
+    submitOutsideResult()
+    submitGamesResult()
+    submitWaitResult()
+    submitCrowdedResult()
+    submitTraditionalResult()
+    submitDiveResult()
+    submitLiveMusicResult()
+    submitSpoonsResult()
+    submitNoiseResult()
 };
 
 function submitFoodResult() {
     if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+        userResults.food = true;
+    } else if (document.getElementById('foodNo').checked) {
+        userResults.food = false;
     } else  console.log("nothing is checked!");
  }
 
 function submitPizzaResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('pizzaYes').checked) {
+        userResults.pizza = true;
+    } else if (document.getElementById('pizzaNo').checked) {
+        userResults.pizza = false;
     } else  console.log("nothing is checked!");
 }
 
 function submitDancingResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('danceYes').checked) {
+        userResults.dancing = true;
+    } else if (document.getElementById('danceNo').checked) {
+        userResults.dancing = false;
     } else  console.log("nothing is checked!");
 }
 
 function submitDrinksResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('lager').checked) {
+        userResults.drinks = "standard";
+    } else if(document.getElementById('wine').checked) {
+        userResults.drinks = "standard";
+    } else if(document.getElementById('cocktail').checked) {
+        userResults.drinks = "cocktail";
+    } else if(document.getElementById('ipa').checked) {
+        userResults.drinks = "ipa";
+    } else if(document.getElementById('cider').checked) {
+        userResults.drinks = "cider";
+    } else if(document.getElementById('drinkOther').checked) {
+        userResults.drinks = "standard";
+    } else  console.log("nothing is checked!");
+}
+
+function submitOutsideResult() {
+    if (document.getElementById('outsideVery').checked) {
+        userResults.outside = "high";
+    } else if(document.getElementById('outsideFairly').checked) {
+        userResults.outside = "medium";
+    } else if(document.getElementById('outsideNot').checked) {
+        userResults.outside = "low";
     } else  console.log("nothing is checked!");
 }
 
 function submitGamesResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('board').checked) {
+        userResults.games = "board";
+    } else if(document.getElementById('pool').checked) {
+        userResults.games = "pool";
+    } else if(document.getElementById('pingpong').checked) {
+        userResults.games = "pingpong";
+    } else if(document.getElementById('gamesNo').checked) {
+       userResults.games = null;
     } else  console.log("nothing is checked!");
 }
 
 function submitWaitResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('waitYes').checked) {
+        userResults.wait = true;
+    } else if(document.getElementById('waitNo').checked) {
+        userResults.wait = false;
     } else  console.log("nothing is checked!");
 }
 
 function submitCrowdedResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('crowdYes').checked) {
+        userResults.crowd = true;
+    } else if(document.getElementById('crowdNo').checked) {
+        userResults.crowd = false;
     } else  console.log("nothing is checked!");
 }
 
 function submitTraditionalResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('traditionalYes').checked) {
+        userResults.traditional = true;
+    } else if(document.getElementById('traditionalNo').checked) {
+        userResults.traditional = false;
     } else  console.log("nothing is checked!");
 }
 
 function submitDiveResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('diveYes').checked) {
+        userResults.dive = true;
+    } else if (document.getElementById('diveNo').checked) {
+        userResults.food = false;
     } else  console.log("nothing is checked!");
 }
 
@@ -466,10 +500,10 @@ function submitSpoonsResult() {
 }
 
 function submitNoiseResult() {
-    if (document.getElementById('foodYes').checked) {
-        console.log("food yes is checked!");
-    } else if(document.getElementById('foodNo').checked) {
-        console.log("food no is checked!");
+    if (document.getElementById('noiseYes').checked) {
+        userResults.noise = true;
+    } else if(document.getElementById('noiseNo').checked) {
+        userResults.noise = true;
     } else  console.log("nothing is checked!");
 }
 
