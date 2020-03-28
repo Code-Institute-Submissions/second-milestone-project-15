@@ -17,76 +17,81 @@
     <div class="question">
         Question <span>1</span>
         Do you want to have dinner?
-    <label><input type="radio" name="question1">Yes</label>
-    <label><input type="radio" name="question1">No</label>
+    <label><input type="radio" id="foodYes" name="food">Yes</label>
+    <label><input type="radio" id="foodNo" name="food">No</label>
     </div>
 
     <div class="question">Question <span>2</span>
         How about pizza?
-    <label><input type="radio" name="question2">Yes</label>
-    <label><input type="radio" name="question2">No</label></div>
+    <label><input type="radio" id="pizzaYes" name="pizzaOrDance">Yes</label>
+    <label><input type="radio" id="pizzaNo" name="pizzaOrDance">No</label></div>
 
     <div class="question">Question <span>2</span>
         Do you want to dance?
-    <label><input type="radio" name="question2">Yes</label>
-    <label><input type="radio" name="question2">No</label></div>
+    <label><input type="radio" id="danceYes" name="pizzaOrDance">Yes</label>
+    <label><input type="radio" id="danceNo" name="pizzaOrDance">No</label></div>
 
     <div class="question">Question <span>3</span>
         What do you like to drink?
-    <label><input type="radio" name="question3">Lager</label>
-    <label><input type="radio" name="question3">Wine</label>
-    <label><input type="radio" name="question3">Cocktails</label>
-    <label><input type="radio" name="question3">IPAs</label>
-    <label><input type="radio" name="question3">Cider</label>
-    <label><input type="radio" name="question3">Other</label>
+    <label><input type="radio" id="lager" name="drink">Lager</label>
+    <label><input type="radio" id="wine" name="drink">Wine</label>
+    <label><input type="radio" id="cocktail" name="drink">Cocktails</label>
+    <label><input type="radio" id="ipa" name="drink">IPAs</label>
+    <label><input type="radio" id="cider" name="drink">Cider</label>
+    <label><input type="radio" id="drinksOther" name="drink">Other</label>
     </div>
 
     <div class="question">Question <span>4</span>
         How important is outside seating?
-    <label><input type="radio" name="question4">Very important</label>
-    <label><input type="radio" name="question4">Fairly important</label>
-    <label><input type="radio" name="question4">Not important</label>
+    <label><input type="radio" id="outsideVery" name="outside">Very important</label>
+    <label><input type="radio" id="outsideFairly" name="outside">Fairly important</label>
+    <label><input type="radio" id="outsideNot" name="outside">Not important</label>
     </div>
 
     <div class="question">Question <span>5</span>
         Which of these games do you prefer?
-    <label><input type="radio" name="question5">Board games</label>
-    <label><input type="radio" name="question5">Pool</label>
-    <label><input type="radio" name="question5">Ping Pong</label>
-    <label><input type="radio" name="question5">Not looking to play games</label></div>
+    <label><input type="radio" id="board" name="games">Board games</label>
+    <label><input type="radio" id="pool" name="games">Pool</label>
+    <label><input type="radio" id="pingpong" name="games">Ping Pong</label>
+    <label><input type="radio" id="gamesNo" name="games">Not looking to play games</label></div>
 
     <div class="question">Question <span>6</span>
         Do you mind a wait at the bar?
-    <label><input type="radio" name="question6">Yes</label>
-    <label><input type="radio" name="question6">No</label></div>
+    <label><input type="radio" id="waitYes" name="wait">Yes</label>
+    <label><input type="radio" id="waitNo" name="wait">No</label></div>
 
     <div class="question">Question <span>7</span>
-        Do you mind if it's crowded?
-    <label><input type="radio" name="question7">Yes</label>
-    <label><input type="radio" name="question7">No</label></div>
+        Do you like if it's crowded?
+    <label><input type="radio" id="crowdYes" name="crowded">Yes</label>
+    <label><input type="radio" id="crowdNo" name="crowded">No</label></div>
 
     <div class="question">Question <span>8</span>
-        Do you mind if it's loud?
-    <label><input type="radio" name="question8">Yes</label>
-    <label><input type="radio" name="question8">No</label></div>
+        Is it alright if it's loud?
+    <label><input type="radio" id="loudYes" name="loud">Yes</label>
+    <label><input type="radio" id="loudNo" name="loud">No</label></div>
 
     <div class="question">Question <span>9</span>
         Do you want to listen to live music?
-    <label><input type="radio" name="question9">Yes</label>
-    <label><input type="radio" name="question9">No</label></div>
+    <label><input type="radio" id="musicYes" name="livemusic">Yes</label>
+    <label><input type="radio" id="musicNo" name="livemusic">No</label></div>
 
     <div class="question">Question <span>10</span>
         How do you feel about Wetherspoons?
-    <label><input type="radio" name="question10">I love a Spoons!</label>
-    <label><input type="radio" name="question10">Don't Mind</label>
-    <label><input type="radio" name="question10">No Thanks</label></div>
+    <label><input type="radio" id="spoonsLove" name="spoons">I love a Spoons!</label>
+    <label><input type="radio" id="spoonsMiddle" name="spoons">Don't Mind</label>
+    <label><input type="radio" id="spoonsNo" name="spoons">No Thanks</label></div>
 
     <div class="question">Question <span>11</span>
         Do you like dive bars?
-    <label><input type="radio" name="question11">Yes</label>
-    <label><input type="radio" name="question11">No</label></div>
+    <label><input type="radio" id="diveYes" name="dive">Yes</label>
+    <label><input type="radio" id="diveNo" name="dive">No</label></div>
 
+    <div class="question">Question <span>12</span>
+        Do you want to go to a traditional pub?
+    <label><input type="radio" id="traditionalYes" name="traditional">Yes</label>
+    <label><input type="radio" id="traditionalNo" name="traditional">No</label></div>
     </div>
+
     <button id="previousButton">Previous</button>
     <button id="nextButton">Next</button>
     <button id="submitButton">Submit Results</button>

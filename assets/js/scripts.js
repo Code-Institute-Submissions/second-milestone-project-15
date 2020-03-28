@@ -378,51 +378,99 @@ function submitUserResults() {
 };
 
 function submitFoodResult() {
-
-}
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
+ }
 
 function submitPizzaResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitDancingResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitDrinksResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitGamesResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitWaitResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitCrowdedResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitTraditionalResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitDiveResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitLiveMusicResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitSpoonsResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 function submitNoiseResult() {
-
+    if (document.getElementById('foodYes').checked) {
+        console.log("food yes is checked!");
+    } else if(document.getElementById('foodNo').checked) {
+        console.log("food no is checked!");
+    } else  console.log("nothing is checked!");
 }
 
 
