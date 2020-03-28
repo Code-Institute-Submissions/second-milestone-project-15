@@ -415,9 +415,9 @@ function submitDancingResult() {
 
 function submitDrinksResult() {
     if (document.getElementById('lager').checked) {
-        userResults.drinks = "standard";
+        userResults.drinks = "normal";
     } else if(document.getElementById('wine').checked) {
-        userResults.drinks = "standard";
+        userResults.drinks = "normal";
     } else if(document.getElementById('cocktail').checked) {
         userResults.drinks = "cocktail";
     } else if(document.getElementById('ipa').checked) {
@@ -425,7 +425,7 @@ function submitDrinksResult() {
     } else if(document.getElementById('cider').checked) {
         userResults.drinks = "cider";
     } else if(document.getElementById('drinkOther').checked) {
-        userResults.drinks = "standard";
+        userResults.drinks = "normal";
     }
 }
 
@@ -452,26 +452,32 @@ function submitGamesResult() {
 }
 
 function submitWaitResult() {
-    if (document.getElementById('waitYes').checked) {
-        userResults.wait = true;
-    } else if(document.getElementById('waitNo').checked) {
-        userResults.wait = false;
-    }
+    if (document.getElementById('waitHigh').checked) {
+        userResults.wait = "high";
+    } else if(document.getElementById('waitMedium').checked) {
+        userResults.wait = "medium";
+    } else if(document.getElementById('waitLow').checked) {
+        userResults.wait = "low";
+}
 }
 
 function submitCrowdedResult() {
-    if (document.getElementById('crowdYes').checked) {
-        userResults.crowd = true;
-    } else if(document.getElementById('crowdNo').checked) {
-        userResults.crowd = false;
+    if (document.getElementById('crowdHigh').checked) {
+        userResults.crowd = "high";
+    } else if(document.getElementById('crowdMedium').checked) {
+        userResults.crowd = "medium";
+    } else if(document.getElementById('crowdLow').checked) {
+        userResults.crowd = "low";
     }
 }
 
 function submitTraditionalResult() {
     if (document.getElementById('traditionalYes').checked) {
-        userResults.traditional = true;
+        userResults.traditional = "yes";
+    } else if(document.getElementById('traditionalMiddle').checked) {
+        userResults.traditional = "middle";
     } else if(document.getElementById('traditionalNo').checked) {
-        userResults.traditional = false;
+        userResults.traditional = "no";
     }
 }
 
@@ -479,7 +485,7 @@ function submitDiveResult() {
     if (document.getElementById('diveYes').checked) {
         userResults.dive = true;
     } else if (document.getElementById('diveNo').checked) {
-        userResults.food = false;
+        userResults.dive = false;
     }
 }
 
@@ -487,7 +493,7 @@ function submitLiveMusicResult() {
     if (document.getElementById('musicYes').checked) {
         userResults.livemusic = true;
     } else if (document.getElementById('musicNo').checked) {
-        userResults.noise = false;
+        userResults.livemusic = false;
     }
 }
 
@@ -502,10 +508,12 @@ function submitSpoonsResult() {
 }
 
 function submitNoiseResult() {
-    if (document.getElementById('noiseYes').checked) {
-        userResults.noise = true;
-    } else if(document.getElementById('noiseNo').checked) {
-        userResults.noise = false;
+    if (document.getElementById('noiseHigh').checked) {
+        userResults.noise = "high";
+    } else if(document.getElementById('noiseMedium').checked) {
+        userResults.noise = "medium";
+    } else if(document.getElementById('noiseLow').checked) {
+        userResults.noise = "low";
     }
 }
 
@@ -531,8 +539,8 @@ function calculateTotalScore() {
 //compare user results with scores of venue list array
 function addFoodScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 10
+    if(venueList[i].food === true && userResults.food === true){
+    venueList[i].score += 15
     }
 }
 };
@@ -541,8 +549,9 @@ function addPizzaScore() {
     for(var i = 0; i < venueList.length; i++) {
     if(venueList[i].pizza === true && userResults.pizza === true){
     venueList[i].score += 10
- }
-}
+ } else if(venueList[i].pizza === true && userResults.pizza === false)
+    venueList[i].score -= 10
+} 
 };
 
 function addDancingScore() {
@@ -555,48 +564,81 @@ function addDancingScore() {
 
 function addDrinksScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 10
+    if(venueList[i].drinks === userResults.drinks && venueList[i].drinks != "normal"){
+    venueList[i].score += 5
 }
 }
 };
 
 function addGamesScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 10
+    if(venueList[i].games === userResults.games && venueList[i].games != null){
+    venueList[i].score += 5
 }
 }
 };
 
 function addWaitScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
+    if(venueList[i].wait === "high" || venueList[i].wait === "medium" || venueList[i].wait === "low" && userResults.wait === "high"){
     venueList[i].score += 10
-}
-}
-};
-
-function addCrowdedScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
+    } else if (venueList[i].wait === "medium" || venueList[i].wait === "low" && userResults.wait === "medium"){
+    venueList[i].score += 10
+    } else if (venueList[i].wait === "low" && userResults.wait === "low"){
     venueList[i].score += 10
     }
 }
 };
 
+function addOutsideScore() {
+    for(var i = 0; i < venueList.length; i++) {
+    if(venueList[i].outside === "very high" && userResults.outside === "high"){
+    venueList[i].score += 15
+    } else if (venueList[i].outside === "very high" && userResults.outside === "medium"){
+    venueList[i].score += 10
+    } else if (venueList[i].outside === "high" && userResults.outside === "high"){
+    venueList[i].score += 10
+    } else if (venueList[i].outside === "high" && userResults.outside === "medium"){
+    venueList[i].score += 7
+    } else if (venueList[i].outside === "medium" && userResults.outside === "high"){
+    venueList[i].score += 5
+    } else if (venueList[i].outside === "medium" && userResults.outside === "medium"){
+    venueList[i].score += 4
+    } else if (venueList[i].outside === "low" && userResults.outside === "high"){
+    venueList[i].score -= 5
+    } else if (venueList[i].outside === null && userResults.outside === "high"){
+    venueList[i].score -= 10 
+    } else if (venueList[i].outside === null && userResults.outside === "medium"){
+    venueList[i].score -= 5
+    }
+}
+};
+
+function addCrowdedScore() {
+    for(var i = 0; i < venueList.length; i++) {
+    if(venueList[i].crowd === "high" || venueList[i].crowd === "medium" || venueList[i].crowd === "low" && userResults.crowd === "high"){
+    venueList[i].score += 10
+    } else if (venueList[i].crowd === "medium" || venueList[i].crowd === "low" && userResults.crowd === "medium"){
+    venueList[i].score += 10
+    } else if (venueList[i].crowd === "low" && userResults.crowd === "low"){
+    venueList[i].score += 10
+    }
+}
+};
 
 function addTraditionalScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 10
+    if(venueList[i].traditional === true && userResults.traditional === "yes"){
+    venueList[i].score += 15
+    } else if(venueList[i].traditional === true && userResults.traditional === "no"){
+    venueList[i].score -= 15
     }
 }
 };
 
 function addDiveScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
+    if(venueList[i].dive === userResults.dive){
     venueList[i].score += 10
     }
 }
@@ -604,7 +646,7 @@ function addDiveScore() {
 
 function addLiveMusicScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
+    if(venueList[i].livemusic === true && userResults.livemusic=== true){
     venueList[i].score += 10
     }
 }
@@ -612,15 +654,21 @@ function addLiveMusicScore() {
 
 function addSpoonsScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 10
+    if(venueList[i].spoons === true && userResults.spoons === "love"){
+    venueList[i].score += 15
+    } else if(venueList[i].spoons === true && userResults.spoons === "no") {
+    venueList[i].score -= 15
     }
 }
 };
 
 function addNoiseScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
+    if(venueList[i].noise === "high" || venueList[i].noise === "medium" || venueList[i].noise === "low" && userResults.noise === "high"){
+    venueList[i].score += 10
+    } else if (venueList[i].noise === "medium" || venueList[i].noise === "low" && userResults.noise === "medium"){
+    venueList[i].score += 10
+    } else if (venueList[i].noise === "low" && userResults.noise === "low"){
     venueList[i].score += 10
     }
 }
