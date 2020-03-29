@@ -445,8 +445,10 @@ function submitFoodResult() {
 function submitPizzaResult() {
     if (document.getElementById('pizzaYes').checked) {
         userResults.pizza = true;
+        userResults.dancing = null;
     } else if (document.getElementById('pizzaNo').checked) {
         userResults.pizza = false;
+        userResults.dancing = null;
     } else
         userResults.pizza = null;
 };
@@ -454,8 +456,10 @@ function submitPizzaResult() {
 function submitDancingResult() {
     if (document.getElementById('danceYes').checked) {
         userResults.dancing = true;
+        userResults.pizza = null;
     } else if (document.getElementById('danceNo').checked) {
         userResults.dancing = false;
+        userResults.pizza = null;
     } else
         userResults.dancing = null;
 };
