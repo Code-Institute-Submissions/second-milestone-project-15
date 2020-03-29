@@ -370,6 +370,8 @@ const venueList = [
 ];
 //array of every possible venue as objects
 
+const validationList = [true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
 // var topThreeVenues = [];
 var userResults = {};
 var currentSlide = 0;
@@ -377,37 +379,42 @@ var currentSlide = 0;
 var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
     startQuiz()
-    console.log("start button clicked");
 })
 
 var previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
     showOneQuestionTwoPrevious();
     previousSlide();
-    console.log("clicked previous!");
 })
 
 var nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
+    if (answerValidation() === true) {
     showOneQuestionTwoNext()
-    nextSlide();
-    console.log("clicked next!");
+    nextSlide(); }
 })
 
 var submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
-    console.log("clicked the button!");
-    submitUserResults();
-    calculateTotalScore();
-    sortListByScore();
-    displayResults();
+    if (answerValidation() === true) {
+        submitUserResults();
+        calculateTotalScore();
+        sortListByScore();
+        displayResults(); }
 });
 
 var resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", function(){
-    console.log("clicked reset!");
     backToStart();
 });
+
+var labels = document.getElementsByTagName("label");
+for (i = 0; i < labels.length; i++) {
+labels[i].addEventListener("click", function(){
+    validationList[currentSlide] = true;
+    document.getElementsByClassName("message")[currentSlide].innerHTML = "";
+}
+)};
 
 
 function submitUserResults() {
@@ -788,11 +795,15 @@ function previousSlide () {
     }
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide -= 1;
-    slide[currentSlide].classList.remove("hidden");  
+    slide[currentSlide].classList.remove("hidden");
+    document.getElementsByClassName("message")[currentSlide].innerHTML = "";  
 }
 
 function answerValidation() {
-
+    if (validationList[currentSlide] != true) {
+        document.getElementsByClassName("message")[currentSlide].innerHTML = "<p>Please select an option!</p>";
+    } else {
+    return true }
 }
 
 function showOneQuestionTwoNext() {

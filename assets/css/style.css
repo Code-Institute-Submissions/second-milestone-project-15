@@ -31,8 +31,12 @@ h3 {
 }
 
 .question {
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 2rem;
+}
+
+.question p {
+    margin: 0.5rem 0rem 0.7rem 0rem;
 }
 
 .options {
@@ -57,6 +61,10 @@ h3 {
 .checked {
     color: white;
     background-color: green;
+}
+
+.message {
+    color: red;
 }
 
 .hidden {
