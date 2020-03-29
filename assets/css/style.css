@@ -7,6 +7,14 @@ h1 {
     text-align: center;
 }
 
+#start {
+    width: 400px;
+    height: 550px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+}
+
 .question-slide {
     width: 400px;
     height: 550px;
@@ -32,4 +40,13 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+#buttons {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.shown {
+    display: inline-block;
 }

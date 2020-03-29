@@ -374,6 +374,12 @@ const venueList = [
 var userResults = {};
 var currentSlide = 0;
 
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", function(){
+    startQuiz()
+    console.log("start button clicked");
+})
+
 var previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
     previousSlide();
@@ -730,22 +736,66 @@ function sortListByScore() {
     venueList.sort(function(x, y){return y.score - x.score});
 };
 
+function startQuiz() {
+    nextSlide()
+    var next = document.getElementById("next");
+    var start = document.getElementById("start");
+    next.classList.add("shown");
+    next.classList.remove("hidden");
+    start.classList.add("hidden");
+    
+}
+
 function nextSlide() {
     var slide = document.getElementsByClassName("slide");
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide += 1;
     slide[currentSlide].classList.remove("hidden");
+    if (currentSlide === slide.length-1) {
+        var next = document.getElementById("next");
+        var submit = document.getElementById("submit");
+        next.classList.add("hidden");
+        next.classList.remove("shown");
+        submit.classList.add("shown");
+        submit.classList.remove("hidden");
+    } else if (currentSlide === 2 || currentSlide === 3){
+        var previous = document.getElementById("previous");
+        previous.classList.add("shown")
+        previous.classList.remove("hidden");
+    }
 }
 
 
 function previousSlide () {
     var slide = document.getElementsByClassName("slide");
+    if (currentSlide === 2) {
+        var previous = document.getElementById("previous");
+        previous.classList.add("hidden");
+        previous.classList.remove("shown");
+    } else if (currentSlide === slide.length-1){
+        var next = document.getElementById("next");
+        var submit = document.getElementById("submit");
+        next.classList.add("shown");
+        next.classList.remove("hidden");
+        submit.classList.add("hidden");
+        submit.classList.remove("shown");
+    }
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide -= 1;
     slide[currentSlide].classList.remove("hidden");
+    
 }
 
 function displayResults() {
+    var slide = document.getElementsByClassName("slide");
+    slide[currentSlide].classList.add("hidden");
+    currentSlide = currentSlide += 1;
+    var submit = document.getElementById("submit");
+    var previous = document.getElementById("previous");
+    submit.classList.add("hidden");
+    submit.classList.remove("shown");
+    previous.classList.add("hidden");
+    previous.classList.remove("shown");
     var topThreeVenues = venueList.slice(0,3);
     var firstPlace = topThreeVenues[0].name;
     var secondPlace = topThreeVenues[1].name;
@@ -753,4 +803,5 @@ function displayResults() {
     console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
     var results = document.getElementById("results");
     results.innerHTML = `<ol><li>${firstPlace}</li><li>${secondPlace}</li><li>${thirdPlace}</li></ol>`;
+
 }
