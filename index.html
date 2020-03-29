@@ -10,13 +10,13 @@
 <body>
     <h1>The Great Central Bristol Venue Quiz</h1>
 
-    <div id="start">
+    <div id="start" class="slide">
     <button id="startButton">START QUIZ</button>
     </div>
 
     <div id="questionsContainer">
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
             <div class="question">
             <h3>Question <span>1</span> of 12</h3>
             <p>Do you want to have dinner at the venue?</p>
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>2</span> of 12</h3>
             <p>How about pizza?</p>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>2</span> of 12</h3>
             <p>Do you want to have a dance?</p>
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>3</span> of 12</h3>
             <p>What would you like to drink?</p>
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>4</span> of 12</h3>
             <p>How important is outside seating?</p>
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>5</span> of 12</h3>
             <p>Which of these games do you prefer?</p>
@@ -89,7 +89,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>6</span> of 12</h3>
             <p>Are you a patient person who doesn't mind waiting?</p>
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>7</span> of 12</h3>
             <p>Do you mind if it's crowded?</p>
@@ -113,7 +113,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>8</span> of 12</h3>
             <p>How about if it's noisy?</p>
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>9</span> of 12</h3>
             <p>Do you want to listen to live music?</p>
@@ -136,7 +136,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>10</span> of 12</h3>
             <p>How do you feel about Wetherspoons?</p>
@@ -148,7 +148,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>11</span> of 12</h3>
             <p>Do you like dive bars?</p>
@@ -159,7 +159,7 @@
         </div>
     </div>
 
-    <div class="question-slide">
+    <div class="slide question-slide hidden">
         <div class="question">
             <h3>Question <span>12</span> of 12</h3>
             <p>Do you want to go to a traditional pub?</p>
@@ -173,9 +173,15 @@
     
     </div>
 
-    <button id="previousButton">Previous</button>
-    <button id="nextButton">Next</button>
+    <div id="previous">
+        <button id="previousButton">Previous</button>
+    </div>
+    <div id="next">
+        <button id="nextButton">Next</button>
+    </div>
+    <div id="submit">
     <button id="submitButton">Submit Results</button>
+    </div>
     <div id="results"></div>
 
 

@@ -27,4 +27,9 @@ h1 {
 .options label {
     display: block;
     padding-bottom: 1rem;
+    /*width: 100%;*/
+}
+
+.hidden {
+    display: none;
 }

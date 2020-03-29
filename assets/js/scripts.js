@@ -372,6 +372,19 @@ const venueList = [
 
 // var topThreeVenues = [];
 var userResults = {};
+var currentSlide = 0;
+
+var previousButton = document.getElementById("previousButton");
+previousButton.addEventListener("click", function() {
+    previousSlide();
+    console.log("clicked previous!");
+})
+
+var nextButton = document.getElementById("nextButton");
+nextButton.addEventListener("click", function() {
+    nextSlide();
+    console.log("clicked next!");
+})
 
 var submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
@@ -381,6 +394,7 @@ submitButton.addEventListener("click", function() {
     sortListByScore();
     displayResults();
 });
+
 
 
 function submitUserResults() {
@@ -716,6 +730,20 @@ function sortListByScore() {
     venueList.sort(function(x, y){return y.score - x.score});
 };
 
+function nextSlide() {
+    var slide = document.getElementsByClassName("slide");
+    slide[currentSlide].classList.add("hidden");
+    currentSlide = currentSlide += 1;
+    slide[currentSlide].classList.remove("hidden");
+}
+
+
+function previousSlide () {
+    var slide = document.getElementsByClassName("slide");
+    slide[currentSlide].classList.add("hidden");
+    currentSlide = currentSlide -= 1;
+    slide[currentSlide].classList.remove("hidden");
+}
 
 function displayResults() {
     var topThreeVenues = venueList.slice(0,3);
@@ -723,4 +751,6 @@ function displayResults() {
     var secondPlace = topThreeVenues[1].name;
     var thirdPlace = topThreeVenues[2].name;
     console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
+    var results = document.getElementById("results");
+    results.innerHTML = `<ol><li>${firstPlace}</li><li>${secondPlace}</li><li>${thirdPlace}</li></ol>`;
 }
