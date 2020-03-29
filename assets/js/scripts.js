@@ -401,6 +401,11 @@ submitButton.addEventListener("click", function() {
     displayResults();
 });
 
+var resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", function(){
+    console.log("clicked reset!");
+    backToStart();
+});
 
 
 function submitUserResults() {
@@ -792,10 +797,15 @@ function displayResults() {
     currentSlide = currentSlide += 1;
     var submit = document.getElementById("submit");
     var previous = document.getElementById("previous");
+    var results = document.getElementById("results");
+    var reset = document.getElementById("reset");
     submit.classList.add("hidden");
     submit.classList.remove("shown");
     previous.classList.add("hidden");
     previous.classList.remove("shown");
+    results.classList.toggle("hidden");
+    reset.classList.add("shown");
+    reset.classList.remove("hidden");
     var topThreeVenues = venueList.slice(0,3);
     var firstPlace = topThreeVenues[0].name;
     var secondPlace = topThreeVenues[1].name;
@@ -803,5 +813,17 @@ function displayResults() {
     console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
     var results = document.getElementById("results");
     results.innerHTML = `<ol><li>${firstPlace}</li><li>${secondPlace}</li><li>${thirdPlace}</li></ol>`;
+
+}
+
+function backToStart() {
+    var start = document.getElementById("start");
+    var results = document.getElementById("results");
+    var reset = document.getElementById("reset");
+    start.classList.toggle("hidden");
+    results.classList.toggle("hidden");
+    reset.classList.add("hidden");
+    reset.classList.remove("shown");
+    currentSlide = 0;
 
 }
