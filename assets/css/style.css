@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap');
+
 body {
+    font-family: 'Bitter', serif;
     background-color:grey;
     font-size: 1.75rem;
 }
@@ -7,12 +10,15 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    margin-top: 20px;
+}
+
 #start {
     width: 400px;
     height: 550px;
     margin: 0 auto;
     text-align: center;
-    background-color: white;
 }
 
 .question-slide {
@@ -35,7 +41,7 @@ h1 {
 .options label {
     display: block;
     padding-bottom: 1rem;
-    /*width: 100%;*/
+    width: 100%;
 }
 
 .hidden {
@@ -45,6 +51,24 @@ h1 {
 #buttons {
     margin: 0 auto;
     text-align: center;
+}
+
+.navbuttons {
+    padding: 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    margin-top: 1rem;
+    outline: none;
+    min-width: 100px;
+}
+
+#results {
+    margin: 0 auto;
+    width: 400px;
+    height: 550px;
+    padding-top: 50px;
 }
 
 .shown {
