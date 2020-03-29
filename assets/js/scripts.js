@@ -382,12 +382,14 @@ startButton.addEventListener("click", function(){
 
 var previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
+    showOneQuestionTwoPrevious();
     previousSlide();
     console.log("clicked previous!");
 })
 
 var nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
+    showOneQuestionTwoNext()
     nextSlide();
     console.log("clicked next!");
 })
@@ -770,7 +772,6 @@ function nextSlide() {
     }
 }
 
-
 function previousSlide () {
     var slide = document.getElementsByClassName("slide");
     if (currentSlide === 2) {
@@ -787,9 +788,39 @@ function previousSlide () {
     }
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide -= 1;
-    slide[currentSlide].classList.remove("hidden");
-    
+    slide[currentSlide].classList.remove("hidden");  
 }
+
+function answerValidation() {
+
+}
+
+function showOneQuestionTwoNext() {
+    if (currentSlide === 1 && document.getElementById('foodNo').checked) {
+        var slide = document.getElementsByClassName("slide");
+        slide[currentSlide].classList.add("hidden");
+        currentSlide += 1
+
+    } else if (currentSlide === 2) {
+        var slide = document.getElementsByClassName("slide");
+        slide[currentSlide].classList.add("hidden");
+        currentSlide += 1
+    }
+}
+
+function showOneQuestionTwoPrevious() {
+     if (currentSlide === 4 && document.getElementById('foodYes').checked) {
+        var slide = document.getElementsByClassName("slide");
+        slide[currentSlide].classList.add("hidden");
+        currentSlide -= 1
+
+    } else if (currentSlide === 3) {
+        var slide = document.getElementsByClassName("slide");
+        slide[currentSlide].classList.add("hidden");
+        currentSlide -= 1
+    }
+}
+
 
 function displayResults() {
     var slide = document.getElementsByClassName("slide");
@@ -813,7 +844,6 @@ function displayResults() {
     console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
     var results = document.getElementById("results");
     results.innerHTML = `<ol><li>${firstPlace}</li><li>${secondPlace}</li><li>${thirdPlace}</li></ol>`;
-
 }
 
 function backToStart() {
@@ -825,5 +855,4 @@ function backToStart() {
     reset.classList.add("hidden");
     reset.classList.remove("shown");
     currentSlide = 0;
-
 }
