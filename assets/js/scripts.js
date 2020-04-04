@@ -1,3 +1,4 @@
+//array of every possible venue as objects
 const venueList = [
 {   name: "The Cornubia",
     food: false,
@@ -368,13 +369,12 @@ const venueList = [
     score: 0,
 },
 ];
-//array of every possible venue as objects
 
-const validationList = [true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const validationList = [true];
 
-// var topThreeVenues = [];
-var userResults = {};
-var currentSlide = 0;
+let topThreeVenues = [];
+const userResults = {};
+let currentSlide = 0;
 
 var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
@@ -852,13 +852,27 @@ function displayResults() {
     results.classList.toggle("hidden");
     reset.classList.add("shown");
     reset.classList.remove("hidden");
-    var topThreeVenues = venueList.slice(0,3);
-    var firstPlace = topThreeVenues[0].name;
-    var secondPlace = topThreeVenues[1].name;
-    var thirdPlace = topThreeVenues[2].name;
-    console.log("1. " + firstPlace + " 2. " + secondPlace + " 3. " + thirdPlace);
+    topThreeVenues = venueList.slice(0,3);
+    var firstPlaceName = topThreeVenues[0].name;
+    var secondPlaceName = topThreeVenues[1].name;
+    var thirdPlaceName = topThreeVenues[2].name;
+    console.log("1. " + firstPlaceName + " 2. " + secondPlaceName + " 3. " + thirdPlaceName);
     var results = document.getElementById("results");
-    results.innerHTML = `<ol><li>${firstPlace}</li><li>${secondPlace}</li><li>${thirdPlace}</li></ol>`;
+    var firstResult = document.getElementById("firstresult");
+    var secondResult = document.getElementById("secondresult");
+    var thirdResult = document.getElementById("thirdresult");
+    var firstHeading = document.querySelector("#firstresult .heading");
+    var secondHeading = document.querySelector("#secondresult .heading");
+    var thirdHeading = document.querySelector("#thirdresult .heading");
+    var firstMap = document.querySelector("#firstresult .map");
+    var secondMap= document.querySelector("#secondresult .map");
+    var thirdMap = document.querySelector("#thirdresult .map");
+    var firstDetails = document.querySelector("#firstresult .details");
+    var secondDetails = document.querySelector("#secondresult .details");
+    var thirdDetails = document.querySelector("#thirdresult .details");
+    firstHeading.innerHTML = `<h2>1. ${firstPlaceName}</h2>`;
+    secondHeading.innerHTML = `<h2>2. ${secondPlaceName}</h2>`;
+    thirdHeading.innerHTML = `<h2>3. ${thirdPlaceName}</h2>`;
 }
 
 function backToStart() {
