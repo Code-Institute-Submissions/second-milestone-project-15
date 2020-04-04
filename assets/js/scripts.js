@@ -15,6 +15,7 @@ const venueList = [
     spoons: false,
     noise: "low",
     score: 0,
+    placeid: "ChIJzQhmhXuOcUgRXXHy3Rvf5tE",
 },
 {   name: "Renatos",
     food: true,
@@ -31,6 +32,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJC1hs-niOcUgRMmAhwjDeIuc",
 },
 {   name: "Left Handed Giant",
     food: true,
@@ -47,6 +49,7 @@ const venueList = [
     spoons: false,
     noise: "high",
     score: 0,
+    placeid: "ChIJ53EQGYaPcUgRAnYa9mcOgkY",
 },
 {   name: "The Ostrich",
     food: true,
@@ -63,6 +66,7 @@ const venueList = [
     spoons: false,
     noise: "low",
     score: 0,
+    placeid: "ChIJndu6HSiPcUgRD50BTyKxfk8",
 },
 {   name: "The Golden Guinea",
     food: false,
@@ -79,6 +83,7 @@ const venueList = [
     spoons: false,
     noise: "low",
     score: 0,
+    placeid: "ChIJReFPD3-OcUgRuz6qRGuakGA",
 },
 {   name: "The Famous Royal Navy Volunteer",
     food: true,
@@ -95,6 +100,7 @@ const venueList = [
     spoons: false,
     noise: "high",
     score: 0,
+    placeid: "ChIJH7RWjniOcUgRuJnqpQHS3IY",
 },
 {   name: "BocaBar Finzels Reach",
     food: true,
@@ -111,6 +117,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJVeKhGtaPcUgRjmyEMWt7RWE",
 },
 {   name: "BrewDog",
     food: true,
@@ -127,6 +134,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJZ2lYNXiOcUgRNMNuvKtopyQ",
 },
 {   name: "The Old Duke",
     food: false,
@@ -143,6 +151,7 @@ const venueList = [
     spoons: false,
     noise: "high",
     score: 0,
+    placeid: "ChIJ34Js-niOcUgRJhPD6HuRvT4",
 },
 {   name: "Kongs",
     food: false,
@@ -159,6 +168,7 @@ const venueList = [
     spoons: false,
     noise: "high",
     score: 0,
+    placeid: "ChIJ_XS-j3iOcUgRb34ychUE9GI",
 },
 {   name: "The Beer Emporium",
     food: true,
@@ -175,6 +185,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJ_XS-j3iOcUgRFgB3qNXySHY",
 },
 {   name: "Small Bar",
     food: false,
@@ -191,6 +202,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJy69AhHiOcUgRyGhXk62AbE0",
 },
 {   name: "The Bank Tavern",
     food: false,
@@ -207,6 +219,7 @@ const venueList = [
     spoons: false,
     noise: "low",
     score: 0,
+    placeid: "ChIJX_shlHeOcUgRyx-4dTU_wHU",
 },
 {   name: "The Commercial Rooms",
     food: false,
@@ -223,6 +236,7 @@ const venueList = [
     spoons: true,
     noise: "medium",
     score: 0,
+    placeid: "ChIJEYY1GXiOcUgRZcwOifk-ic0",
 },
 {   name: "Bambalan",
     food: true,
@@ -239,6 +253,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJKxoOjNeNcUgR4Qvd19ViLnc",
 },
 {   name: "The Mother's Ruin",
     food: false,
@@ -255,6 +270,7 @@ const venueList = [
     spoons: false,
     noise: "high",
     score: 0,
+    placeid: "ChIJwcOwNniOcUgRfNWwiAPTZNc",
 },
 {   name: "The Old Fish Market",
     food: true,
@@ -271,6 +287,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJBetiNniOcUgR7OrTvV6pVVk",
 },
 {   name: "The Stable",
     food: true,
@@ -287,6 +304,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJ4X5MU9aNcUgRCkWpNFl-4k0",
 },
 {   name: "King Street Brew House",
     food: true,
@@ -303,6 +321,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJs_-N9niOcUgRASDu5HB59I0",
 },
 {   name: "Ye Shakespeare",
     food: true,
@@ -319,6 +338,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJK9_tunuOcUgRPDBijQJU7CE",
 },
 {   name: "The Knights Templar",
     food: true,
@@ -335,8 +355,9 @@ const venueList = [
     spoons: true,
     noise: "medium",
     score: 0,
+    placeid: "ChIJO9evu2SOcUgRm3Gz4vrc3QM",
 },
-{   name: "The Bayhorse",
+{   name: "The Bay Horse",
     food: true,
     pizza: false,
     dancing: false,
@@ -351,6 +372,7 @@ const venueList = [
     spoons: false,
     noise: "medium",
     score: 0,
+    placeid: "ChIJy64-ftiNcUgRFnty7yRuWsE",
 },
 {   name: "The Sidings",
     food: true,
@@ -367,6 +389,7 @@ const venueList = [
     spoons: false,
     noise: "low",
     score: 0,
+    placeid: "ChIJAQDwxnyOcUgRyqFsut_6ihg",
 },
 ];
 
@@ -378,7 +401,7 @@ let currentSlide = 0;
 
 var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
-    startQuiz()
+    startQuiz();
 })
 
 var previousButton = document.getElementById("previousButton");
@@ -873,7 +896,92 @@ function displayResults() {
     firstHeading.innerHTML = `<h2>1. ${firstPlaceName}</h2>`;
     secondHeading.innerHTML = `<h2>2. ${secondPlaceName}</h2>`;
     thirdHeading.innerHTML = `<h2>3. ${thirdPlaceName}</h2>`;
+    initMaps()
 }
+
+function initMaps() {
+    setFirstLocation();
+    setSecondLocation();
+    setThirdLocation();
+};
+
+function setFirstLocation() {
+        var request = {
+            placeId: topThreeVenues[0].placeid,
+            fields: ['geometry.location'],
+        }
+        var result = document.querySelectorAll(".details")[0];
+        var service = new google.maps.places.PlacesService(result);
+        service.getDetails(request, callback);
+        function callback(place, status) {
+            console.log(status);
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    topThreeVenues[0].location = place.geometry.location;
+                    console.log("location set");
+                    createFirstMap();
+            }
+    };
+};
+
+function setSecondLocation() {
+        var request = {
+            placeId: topThreeVenues[1].placeid,
+            fields: ['geometry.location'],
+        }
+        var result = document.querySelectorAll(".details")[1];
+        var service = new google.maps.places.PlacesService(result);
+        service.getDetails(request, function(place, status) {
+            console.log(status);
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    topThreeVenues[1].location = place.geometry.location;
+                    console.log("location set");
+                    createSecondMap();
+            }
+    });
+};
+
+function setThirdLocation() {
+        var request = {
+            placeId: topThreeVenues[2].placeid,
+            fields: ['geometry.location'],
+        }
+        var result = document.querySelectorAll(".details")[2];
+        var service = new google.maps.places.PlacesService(result);
+        service.getDetails(request, function(place, status) {
+            console.log(status);
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    topThreeVenues[2].location = place.geometry.location;
+                    console.log("location set");
+                    createThirdMap();
+            }
+    });
+};
+
+
+function createFirstMap() {
+        var maps = document.getElementsByClassName("map");
+        var markerlocation = topThreeVenues[0].location;
+        var map = new google.maps.Map(maps[0], {zoom: 17, center: markerlocation});
+        var marker = new google.maps.Marker({position: markerlocation, map: map});
+        console.log("map loaded");
+};
+
+function createSecondMap() {
+        var maps = document.getElementsByClassName("map");
+        var markerlocation = topThreeVenues[1].location;
+        var map = new google.maps.Map(maps[1], {zoom: 17, center: markerlocation});
+        var marker = new google.maps.Marker({position: markerlocation, map: map});
+        console.log("map loaded");
+};
+
+function createThirdMap() {
+        var maps = document.getElementsByClassName("map");
+        var markerlocation = topThreeVenues[2].location;
+        var map = new google.maps.Map(maps[2], {zoom: 17, center: markerlocation});
+        var marker = new google.maps.Marker({position: markerlocation, map: map});
+        console.log("map loaded");
+};
+
 
 function backToStart() {
     var start = document.getElementById("start");
