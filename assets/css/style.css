@@ -108,6 +108,11 @@ h3 {
     margin: 0 auto;
 }
 
+.details ul{
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
 .shown {
     display: inline-block;
 }
