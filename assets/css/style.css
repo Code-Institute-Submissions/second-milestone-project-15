@@ -114,14 +114,30 @@ h3 {
     height: 300px;
     margin: 0 auto;
     display: inline-block;
-    background-color:paleturquoise;
+    background-color:grey;
     background-size: cover;
     overflow: hidden;
 }
 
+.credit {
+    font-size: 0.5rem;
+    text-align: right;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.credit p {
+    margin: 0;
+}
+
+.credit a {
+    text-decoration: none;
+    color: darkslategrey;
+}
+
 .details ul {
     list-style: none;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     margin-top: 3rem;
     font-size: 1.5rem;
 }
