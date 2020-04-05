@@ -908,7 +908,7 @@ function presentResultsData() {
 function getFirstPlaceData(first) {
         var request = {
             placeId: topThreeVenues[0].placeid,
-            fields: ['geometry.location'],
+            fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
         }
         var result = document.querySelectorAll(".details")[0];
         var service = new google.maps.places.PlacesService(result);
@@ -924,7 +924,7 @@ function getFirstPlaceData(first) {
 function getSecondPlaceData(second) {
     var request = {
         placeId: topThreeVenues[1].placeid,
-        fields: ['geometry.location'],
+        fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
         }
     var result = document.querySelectorAll(".details")[1];
     var service = new google.maps.places.PlacesService(result);
@@ -940,7 +940,7 @@ function getSecondPlaceData(second) {
 function getThirdPlaceData(third) {
         var request = {
             placeId: topThreeVenues[2].placeid,
-            fields: ['geometry.location'],
+            fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
         }
         var result = document.querySelectorAll(".details")[2];
         var service = new google.maps.places.PlacesService(result);
@@ -948,14 +948,17 @@ function getThirdPlaceData(third) {
         function callback(place, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                     place.arrayposition = 2;
-                    third(place);
+                    third(place); 
             }
     }
 };
 
 function presentData(place) {
         createMap(place);
+        addPhoto(place);
         createDetails(place);
+        
+        
 };
 
 function createMap(place) {
@@ -964,18 +967,26 @@ function createMap(place) {
         var marker = new google.maps.Marker({position: place.geometry.location, map: map});
 }
 
-function createDetails(place) {
-    var details = document.getElementsByClassName("details")[place.arrayposition];
-    details.innerHTML = `<ul>
-                            <li>test</li>
-                            <li>test2</li>
-                            <li>test3</li>
-                            <li>test4</li>
-                            <li>test5</li>
-                        </ul>`;
+function addPhoto(place) {
+    document.getElementsByClassName("image")[place.arrayposition].style.backgroundImage = imageurl;
+    console.log(place.photos[0].html_attributions);
 }
 
-
+function createDetails(place) {
+    var details = document.getElementsByClassName("details")[place.arrayposition];
+    var vicinity = place.vicinity;
+    var phone = place.formatted_phone_number;
+    var website = place.website;
+    var googleurl = place.url;
+    var rating = place.rating;
+    details.innerHTML = `<ul>
+                            <li>${vicinity}</li>
+                            <li>${phone}</li>
+                            <li><a href="${website}" target="_blank">Website</a></li>
+                            <li><a href="${googleurl}" target="_blank">Google Maps</a></li>
+                            <li>${rating} stars</li>
+                        </ul>`;
+}
 
 function backToStart() {
     var start = document.getElementById("start");
