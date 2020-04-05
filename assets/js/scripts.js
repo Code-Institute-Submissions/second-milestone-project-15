@@ -896,16 +896,16 @@ function displayResults() {
     firstHeading.innerHTML = `<h2>1. ${firstPlaceName}</h2>`;
     secondHeading.innerHTML = `<h2>2. ${secondPlaceName}</h2>`;
     thirdHeading.innerHTML = `<h2>3. ${thirdPlaceName}</h2>`;
-    initMaps()
+    presentResultsData();
 }
 
-function initMaps() {
-    setFirstLocation();
-    setSecondLocation();
-    setThirdLocation();
-};
+function presentResultsData() {
+    getFirstPlaceData(presentData);
+    getSecondPlaceData(presentData);
+    getThirdPlaceData(presentData);
+}
 
-function setFirstLocation() {
+function getFirstPlaceData(first) {
         var request = {
             placeId: topThreeVenues[0].placeid,
             fields: ['geometry.location'],
@@ -914,73 +914,67 @@ function setFirstLocation() {
         var service = new google.maps.places.PlacesService(result);
         service.getDetails(request, callback);
         function callback(place, status) {
-            console.log(status);
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    topThreeVenues[0].location = place.geometry.location;
-                    console.log("location set");
-                    createFirstMap();
+                    place.arrayposition = 0;
+                    first(place);
             }
-    };
+    }
 };
 
-function setSecondLocation() {
-        var request = {
-            placeId: topThreeVenues[1].placeid,
-            fields: ['geometry.location'],
+function getSecondPlaceData(second) {
+    var request = {
+        placeId: topThreeVenues[1].placeid,
+        fields: ['geometry.location'],
         }
-        var result = document.querySelectorAll(".details")[1];
-        var service = new google.maps.places.PlacesService(result);
-        service.getDetails(request, function(place, status) {
-            console.log(status);
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    topThreeVenues[1].location = place.geometry.location;
-                    console.log("location set");
-                    createSecondMap();
+    var result = document.querySelectorAll(".details")[1];
+    var service = new google.maps.places.PlacesService(result);
+    service.getDetails(request, callback);
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+                place.arrayposition = 1;
+                second(place);
             }
-    });
+    }
 };
 
-function setThirdLocation() {
+function getThirdPlaceData(third) {
         var request = {
             placeId: topThreeVenues[2].placeid,
             fields: ['geometry.location'],
         }
         var result = document.querySelectorAll(".details")[2];
         var service = new google.maps.places.PlacesService(result);
-        service.getDetails(request, function(place, status) {
-            console.log(status);
+        service.getDetails(request, callback);
+        function callback(place, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    topThreeVenues[2].location = place.geometry.location;
-                    console.log("location set");
-                    createThirdMap();
+                    place.arrayposition = 2;
+                    third(place);
             }
-    });
+    }
 };
 
+function presentData(place) {
+        createMap(place);
+        createDetails(place);
+};
 
-function createFirstMap() {
+function createMap(place) {
         var maps = document.getElementsByClassName("map");
-        var markerlocation = topThreeVenues[0].location;
-        var map = new google.maps.Map(maps[0], {zoom: 17, center: markerlocation});
-        var marker = new google.maps.Marker({position: markerlocation, map: map});
-        console.log("map loaded");
-};
+        var map = new google.maps.Map(maps[place.arrayposition], {zoom: 17, center: place.geometry.location});
+        var marker = new google.maps.Marker({position: place.geometry.location, map: map});
+}
 
-function createSecondMap() {
-        var maps = document.getElementsByClassName("map");
-        var markerlocation = topThreeVenues[1].location;
-        var map = new google.maps.Map(maps[1], {zoom: 17, center: markerlocation});
-        var marker = new google.maps.Marker({position: markerlocation, map: map});
-        console.log("map loaded");
-};
+function createDetails(place) {
+    var details = document.getElementsByClassName("details")[place.arrayposition];
+    details.innerHTML = `<ul>
+                            <li>test</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                            <li>test4</li>
+                            <li>test5</li>
+                        </ul>`;
+}
 
-function createThirdMap() {
-        var maps = document.getElementsByClassName("map");
-        var markerlocation = topThreeVenues[2].location;
-        var map = new google.maps.Map(maps[2], {zoom: 17, center: markerlocation});
-        var marker = new google.maps.Marker({position: markerlocation, map: map});
-        console.log("map loaded");
-};
 
 
 function backToStart() {
