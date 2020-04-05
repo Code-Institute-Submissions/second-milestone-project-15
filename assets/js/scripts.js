@@ -968,8 +968,14 @@ function createMap(place) {
 }
 
 function addPhoto(place) {
+    var photos = place.photos[0];
+    if (!photos) {
+        return;
+  }
+    var imageurl = "url(" + photos.getUrl({maxWidth: 500}) + ")";
     document.getElementsByClassName("image")[place.arrayposition].style.backgroundImage = imageurl;
-    console.log(place.photos[0].html_attributions);
+    var credit = document.getElementsByClassName("credit")[place.arrayposition];
+    credit.innerHTML = `<p>Image Credit: ${photos.html_attributions}</p>`
 }
 
 function createDetails(place) {
