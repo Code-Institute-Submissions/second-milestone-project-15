@@ -22,6 +22,10 @@ h3 {
     text-align: center;
 }
 
+.slide {
+    width: 980px;
+    margin: 0 auto;
+}
 
 .question-slide {
     width: 400px;
