@@ -236,7 +236,7 @@ const venueList = [
     spoons: true,
     noise: "medium",
     score: 0,
-    placeid: "ChIJEYY1GXiOcUgRZcwOifk-ic0",
+    placeid: "ChIJQ9m_G3iOcUgRTXjrgHPSIgE",
 },
 {   name: "Bambalan",
     food: true,
