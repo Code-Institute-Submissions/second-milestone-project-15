@@ -2,13 +2,28 @@
 
 body {
     font-family: 'Bitter', serif;
-    background-color:grey;
+    background: rgb(56,55,54);
+    background: linear-gradient(90deg, rgba(56,55,54,1) 0%, rgb(139, 139, 139) 50%, rgba(56,55,54,1) 100%);
     font-size: 1.75rem;
     margin: 0;
 }
 
+header {
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
 h1 {
     text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-shadow: #e0e0e0 1px 1px 0;
+    margin: 0 auto;
+}
+
+h2 {
+    text-shadow: #e0e0e0 1px 1px 0;
 }
 
 h3 {
@@ -23,8 +38,114 @@ h3 {
 }
 
 .slide {
-    width: 980px;
+    width: 75%;
+    height: 650px;
     margin: 0 auto;
+    border-radius: 8px;
+}
+
+#slide1 {
+    background-image: url("../images/dinner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide2 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide3 {
+    background-image: url("../images/dancing.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide4 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide5 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide6 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide7 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide8 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide9 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide10 {
+    background-image: url("../images/livemusic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide11 {
+    background-image: url("../images/wetherspoons.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide12 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#slide13 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .question-slide {
@@ -32,8 +153,10 @@ h3 {
     height: 550px;
     margin: 0 auto;
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.92);
     border-radius: 8px;
+    position: relative;
+    top: 7%;
 }
 
 .question {
@@ -58,10 +181,9 @@ h3 {
 
 }
 
-
 .options label:hover {
     color: white;
-    background-color: rgba(0,178,0,0.5);
+    background-color: rgba(0,178,0,0.7);
 }
 
 .checked {
@@ -73,10 +195,6 @@ h3 {
     color: red;
 }
 
-.hidden {
-    display: none;
-}
-
 #buttons {
     margin: 0 auto;
     text-align: center;
@@ -84,11 +202,11 @@ h3 {
 
 .navbuttons {
     padding: 10px;
-    background-color: green;
+    background-color: rgb(9, 134, 9);
     border: none;
     color: white;
     font-size: 2rem;
-    margin-top: 1rem;
+    margin: 2rem 0.5rem 0 0.5rem;
     outline: none;
     min-width: 100px;
     border-radius: 8px;
@@ -96,7 +214,7 @@ h3 {
 }
 
 .navbuttons:hover {
-    background-color: rgb(0,90,0);
+    background-color: rgb(7, 231, 7);
 }
 
 #results {
@@ -111,6 +229,7 @@ h3 {
     height: 300px;
     margin: 0 auto;
     display: inline-block;
+    border-radius: 8px;
 }
 
 .image {
@@ -121,6 +240,7 @@ h3 {
     background-color:grey;
     background-size: cover;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .credit {
@@ -142,13 +262,17 @@ h3 {
 .details ul {
     list-style: none;
     margin-bottom: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-size: 1.5rem;
 }
 
 .details a {
     text-decoration: none;
     color: darkslategrey;
+}
+
+.hidden {
+    display: none;
 }
 
 .shown {
