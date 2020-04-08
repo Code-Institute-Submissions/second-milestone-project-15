@@ -393,31 +393,37 @@ const venueList = [
 },
 ];
 
+//object that records the answers given by the user
+const userResults = {};
+
+//array that adds a true for each question that has an answer selected
 const validationList = [true];
 
+//array for the top three responses based on score
 let topThreeVenues = [];
-const userResults = {};
+
+//variable for keeping track of the current slide
 let currentSlide = 0;
 
-var startButton = document.getElementById("startButton");
+const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
     startQuiz();
 })
 
-var previousButton = document.getElementById("previousButton");
+const previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
     showOneQuestionTwoPrevious();
     previousSlide();
 })
 
-var nextButton = document.getElementById("nextButton");
+const nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
     if (answerValidation() === true) {
-    showOneQuestionTwoNext()
-    nextSlide(); }
+        showOneQuestionTwoNext()
+        nextSlide(); }
 })
 
-var submitButton = document.getElementById("submitButton");
+const submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
     if (answerValidation() === true) {
         submitUserResults();
@@ -426,19 +432,29 @@ submitButton.addEventListener("click", function() {
         displayResults(); }
 });
 
-var resetButton = document.getElementById("resetButton");
+const resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", function(){
     backToStart();
 });
 
-var labels = document.getElementsByTagName("label");
+const labels = document.getElementsByTagName("label");
 for (i = 0; i < labels.length; i++) {
-labels[i].addEventListener("click", function(){
-    validationList[currentSlide] = true;
-    document.getElementsByClassName("message")[currentSlide].innerHTML = "";
+    labels[i].addEventListener("click", function(){
+        validationList[currentSlide] = true;
+        document.getElementsByClassName("message")[currentSlide].innerHTML = "";
 }
 )};
 
+let start = document.getElementById("start");
+let slide = document.getElementsByClassName("slide");
+let next = document.getElementById("next");
+let previous = document.getElementById("previous");
+let submit = document.getElementById("submit");
+let results = document.getElementById("results");
+let reset = document.getElementById("reset");
+let firstHeading = document.querySelector("#firstresult .heading");
+let secondHeading = document.querySelector("#secondresult .heading");
+let thirdHeading = document.querySelector("#thirdresult .heading");
 
 function submitUserResults() {
 // if radio is checked, add to userResults object
@@ -463,7 +479,7 @@ function submitFoodResult() {
     } else if (document.getElementById('foodNo').checked) {
         userResults.food = false;
     }
- };
+};
 
 function submitPizzaResult() {
     if (document.getElementById('pizzaYes').checked) {
@@ -488,17 +504,13 @@ function submitDancingResult() {
 };
 
 function submitDrinksResult() {
-    if (document.getElementById('lager').checked) {
-        userResults.drinks = "normal";
-    } else if(document.getElementById('wine').checked) {
-        userResults.drinks = "normal";
-    } else if(document.getElementById('cocktail').checked) {
+    if (document.getElementById('cocktail').checked) {
         userResults.drinks = "cocktail";
-    } else if(document.getElementById('ipa').checked) {
+    } else if (document.getElementById('ipa').checked) {
         userResults.drinks = "ipa";
-    } else if(document.getElementById('cider').checked) {
+    } else if (document.getElementById('cider').checked) {
         userResults.drinks = "cider";
-    } else if(document.getElementById('drinkOther').checked) {
+    } else {
         userResults.drinks = "normal";
     }
 };
@@ -506,9 +518,9 @@ function submitDrinksResult() {
 function submitOutsideResult() {
     if (document.getElementById('outsideVery').checked) {
         userResults.outside = "high";
-    } else if(document.getElementById('outsideFairly').checked) {
+    } else if (document.getElementById('outsideFairly').checked) {
         userResults.outside = "medium";
-    } else if(document.getElementById('outsideNot').checked) {
+    } else if (document.getElementById('outsideNot').checked) {
         userResults.outside = "low";
     }
 };
@@ -516,11 +528,11 @@ function submitOutsideResult() {
 function submitGamesResult() {
     if (document.getElementById('board').checked) {
         userResults.games = "board";
-    } else if(document.getElementById('pool').checked) {
+    } else if (document.getElementById('pool').checked) {
         userResults.games = "pool";
-    } else if(document.getElementById('pingpong').checked) {
+    } else if (document.getElementById('pingpong').checked) {
         userResults.games = "pingpong";
-    } else if(document.getElementById('gamesNo').checked) {
+    } else if (document.getElementById('gamesNo').checked) {
        userResults.games = null;
     }
 };
@@ -528,19 +540,19 @@ function submitGamesResult() {
 function submitWaitResult() {
     if (document.getElementById('waitHigh').checked) {
         userResults.wait = "high";
-    } else if(document.getElementById('waitMedium').checked) {
+    } else if (document.getElementById('waitMedium').checked) {
         userResults.wait = "medium";
-    } else if(document.getElementById('waitLow').checked) {
+    } else if (document.getElementById('waitLow').checked) {
         userResults.wait = "low";
-}
+    }
 };
 
 function submitCrowdedResult() {
     if (document.getElementById('crowdHigh').checked) {
         userResults.crowd = "high";
-    } else if(document.getElementById('crowdMedium').checked) {
+    } else if (document.getElementById('crowdMedium').checked) {
         userResults.crowd = "medium";
-    } else if(document.getElementById('crowdLow').checked) {
+    } else if (document.getElementById('crowdLow').checked) {
         userResults.crowd = "low";
     }
 };
@@ -548,9 +560,9 @@ function submitCrowdedResult() {
 function submitTraditionalResult() {
     if (document.getElementById('traditionalYes').checked) {
         userResults.traditional = "yes";
-    } else if(document.getElementById('traditionalMiddle').checked) {
+    } else if (document.getElementById('traditionalMiddle').checked) {
         userResults.traditional = "middle";
-    } else if(document.getElementById('traditionalNo').checked) {
+    } else if (document.getElementById('traditionalNo').checked) {
         userResults.traditional = "no";
     }
 };
@@ -584,14 +596,14 @@ function submitSpoonsResult() {
 function submitNoiseResult() {
     if (document.getElementById('noiseHigh').checked) {
         userResults.noise = "high";
-    } else if(document.getElementById('noiseMedium').checked) {
+    } else if (document.getElementById('noiseMedium').checked) {
         userResults.noise = "medium";
-    } else if(document.getElementById('noiseLow').checked) {
+    } else if (document.getElementById('noiseLow').checked) {
         userResults.noise = "low";
     }
 };
 
-
+//calculates the points awarded by each question
 function calculateTotalScore() {
     resetScoresToZero()
     addFoodScore()
@@ -608,213 +620,204 @@ function calculateTotalScore() {
     addNoiseScore()
     addOutsideScore()
     addRandomNumber()
-//calculates the points awarded by each question
 };
 
 function resetScoresToZero() {
-    for(var i = 0; i < venueList.length; i++) {
+    for (var i = 0; i < venueList.length; i++) {
         venueList[i].score = 0;
     }
 };
 
-
 //compare user results with scores of venue list array
 function addFoodScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].food === true && userResults.food === true){
-    venueList[i].score += 15
-    } else if (venueList[i].food === false && userResults.food === true){
-    venueList[i].score -= 15
-}
-}
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].food === true && userResults.food === true) {
+        venueList[i].score += 15
+        } else if (venueList[i].food === false && userResults.food === true) {
+        venueList[i].score -= 15
+        }
+    }
 };
 
 function addPizzaScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].pizza === userResults.pizza){
-    venueList[i].score += 10
- } else
-    venueList[i].score -= 10
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].pizza === userResults.pizza) {
+        venueList[i].score += 10
+        } else
+        venueList[i].score -= 10
     }
 };
 
 function addDancingScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dancing === true && userResults.dancing === true){
-    venueList[i].score += 15
-    } else if(venueList[i].dancing === false && userResults.dancing === true)
-    venueList[i].score -= 15
-}
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].dancing === true && userResults.dancing === true) {
+        venueList[i].score += 15
+        } else if (venueList[i].dancing === false && userResults.dancing === true) {
+        venueList[i].score -= 15
+        }
+    }
 };
 
 function addDrinksScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].drinks === userResults.drinks && venueList[i].drinks != "normal"){
-    venueList[i].score += 10
-}
-}
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].drinks === userResults.drinks && venueList[i].drinks != "normal") {
+        venueList[i].score += 10
+        }
+    }
 };
 
 function addGamesScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].games === userResults.games && venueList[i].games != null){
-    venueList[i].score += 7
-}
-}
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].games === userResults.games && venueList[i].games != null) {
+        venueList[i].score += 7
+        }
+    }
 };
 
 function addWaitScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if((venueList[i].wait === "high" || venueList[i].wait === "medium" || venueList[i].wait === "low") && userResults.wait === "high"){
-    venueList[i].score += 10
-    } else if ((venueList[i].wait === "medium" || venueList[i].wait === "low") && userResults.wait === "medium"){
-    venueList[i].score += 10
-    } else if (venueList[i].wait === "low" && userResults.wait === "low"){
-    venueList[i].score += 10
-    } else if (venueList[i].wait === "high" && userResults.wait === "low"){
-    venueList[i].score -= 20
-    } else if (venueList[i].wait === "medium" && userResults.wait === "low"){
-    venueList[i].score -= 10
+    for (var i = 0; i < venueList.length; i++) {
+        if (userResults.wait === "high") {
+        venueList[i].score += 10
+        } else if ((venueList[i].wait === "medium" || venueList[i].wait === "low") && userResults.wait === "medium") {
+        venueList[i].score += 10
+        } else if (venueList[i].wait === "low" && userResults.wait === "low") {
+        venueList[i].score += 10
+        } else if (venueList[i].wait === "high" && userResults.wait === "low") {
+        venueList[i].score -= 20
+        } else if (venueList[i].wait === "medium" && userResults.wait === "low") {
+        venueList[i].score -= 10
+        }
     }
-}
 };
 
 function addOutsideScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].outside === "very high" && userResults.outside === "high"){
-    venueList[i].score += 12
-    } else if (venueList[i].outside === "very high" && userResults.outside === "medium"){
-    venueList[i].score += 8
-    } else if (venueList[i].outside === "high" && userResults.outside === "high"){
-    venueList[i].score += 10
-    } else if (venueList[i].outside === "high" && userResults.outside === "medium"){
-    venueList[i].score += 7
-    } else if (venueList[i].outside === "medium" && userResults.outside === "high"){
-    venueList[i].score += 5
-    } else if (venueList[i].outside === "medium" && userResults.outside === "medium"){
-    venueList[i].score += 2
-    } else if (venueList[i].outside === "low" && userResults.outside === "high"){
-    venueList[i].score -= 7
-    } else if (venueList[i].outside === null && userResults.outside === "high"){
-    venueList[i].score -= 20 
-    } else if (venueList[i].outside === null && userResults.outside === "medium"){
-    venueList[i].score -= 15
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].outside === "very high" && userResults.outside === "high") {
+        venueList[i].score += 12
+        } else if (venueList[i].outside === "very high" && userResults.outside === "medium") {
+        venueList[i].score += 8
+        } else if (venueList[i].outside === "high" && userResults.outside === "high") {
+        venueList[i].score += 10
+        } else if (venueList[i].outside === "high" && userResults.outside === "medium") {
+        venueList[i].score += 7
+        } else if (venueList[i].outside === "medium" && userResults.outside === "high") {
+        venueList[i].score += 5
+        } else if (venueList[i].outside === "medium" && userResults.outside === "medium") {
+        venueList[i].score += 2
+        } else if (venueList[i].outside === "low" && userResults.outside === "high") {
+        venueList[i].score -= 7
+        } else if (venueList[i].outside === null && userResults.outside === "high") {
+        venueList[i].score -= 20 
+        } else if (venueList[i].outside === null && userResults.outside === "medium") {
+        venueList[i].score -= 15
+        }
     }
-}
 };
 
 function addCrowdedScore() {
     for(var i = 0; i < venueList.length; i++) {
-    if((venueList[i].crowd === "high" || venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "high"){
-    venueList[i].score += 10
-    } else if ((venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "medium"){
-    venueList[i].score += 10
-    } else if (venueList[i].crowd === "low" && userResults.crowd === "low"){
-    venueList[i].score += 10
+        if ((venueList[i].crowd === "high" || venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "high") {
+        venueList[i].score += 10
+        } else if ((venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "medium") {
+        venueList[i].score += 10
+        } else if (venueList[i].crowd === "low" && userResults.crowd === "low") {
+        venueList[i].score += 10
+        }
     }
-}
 };
 
 function addTraditionalScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].traditional === true && userResults.traditional === "yes"){
-    venueList[i].score += 15
-    } else if(venueList[i].traditional === true && userResults.traditional === "no"){
-    venueList[i].score -= 15
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].traditional === true && userResults.traditional === "yes") {
+        venueList[i].score += 15
+        } else if (venueList[i].traditional === true && userResults.traditional === "no") {
+        venueList[i].score -= 15
+        }
     }
-}
 };
 
 function addDiveScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].dive === userResults.dive){
-    venueList[i].score += 15
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].dive === userResults.dive) {
+        venueList[i].score += 15
+        }
     }
-}
 };
 
 function addLiveMusicScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].livemusic === true && userResults.livemusic=== true){
-    venueList[i].score += 15
-    } else if (venueList[i].livemusic === false && userResults.livemusic=== true)
-    venueList[i].score -= 10
-}
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].livemusic === true && userResults.livemusic === true) {
+        venueList[i].score += 15
+        } else if (venueList[i].livemusic === false && userResults.livemusic === true) {
+        venueList[i].score -= 10
+        }
+    }
 };
 
 function addSpoonsScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if(venueList[i].spoons === true && userResults.spoons === "love"){
-    venueList[i].score += 15
-    } else if(venueList[i].spoons === true && userResults.spoons === "no") {
-    venueList[i].score -= 15
+    for (var i = 0; i < venueList.length; i++) {
+        if (venueList[i].spoons === true && userResults.spoons === "love") {
+        venueList[i].score += 15
+        } else if (venueList[i].spoons === true && userResults.spoons === "no") {
+        venueList[i].score -= 15
+        }
     }
-}
 };
 
 function addNoiseScore() {
-    for(var i = 0; i < venueList.length; i++) {
-    if((venueList[i].noise === "high" || venueList[i].noise === "medium" || venueList[i].noise === "low") && userResults.noise === "high"){
-    venueList[i].score += 15
-    } else if ((venueList[i].noise === "medium" || venueList[i].noise === "low") && userResults.noise === "medium"){
-    venueList[i].score += 15
-    } else if (venueList[i].noise === "low" && userResults.noise === "low"){
-    venueList[i].score += 15
-    } else if (venueList[i].noise === "high" && userResults.noise === "low"){
-    venueList[i].score -= 15
+    for (var i = 0; i < venueList.length; i++) {
+        if (userResults.noise === "high") {
+        venueList[i].score += 15
+        } else if ((venueList[i].noise === "medium" || venueList[i].noise === "low") && userResults.noise === "medium") {
+        venueList[i].score += 15
+        } else if (venueList[i].noise === "low" && userResults.noise === "low") {
+        venueList[i].score += 15
+        } else if (venueList[i].noise === "high" && userResults.noise === "low") {
+        venueList[i].score -= 15
+        }
     }
-}
 };
 
+//adds a random number less than 1 to each score as a tiebreaker
 function addRandomNumber() {
-    for(var i = 0; i < venueList.length; i++) {
+    for (var i = 0; i < venueList.length; i++) {
         var random = Math.round(Math.random() * 100) / 100;
         venueList[i].score += random;
-}
+    }
 };
 
+//sorts the list by score, with highest first
 function sortListByScore() {
     venueList.sort(function(x, y){return y.score - x.score});
 };
 
 function startQuiz() {
     nextSlide()
-    var next = document.getElementById("next");
-    var start = document.getElementById("start");
     next.classList.add("shown");
     next.classList.remove("hidden");
-    start.classList.add("hidden");
-    
-}
+    start.classList.add("hidden"); 
+};
 
 function nextSlide() {
-    var slide = document.getElementsByClassName("slide");
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide += 1;
     slide[currentSlide].classList.remove("hidden");
-    if (currentSlide === slide.length-1) {
-        var next = document.getElementById("next");
-        var submit = document.getElementById("submit");
+    if (currentSlide === slide.length-1) { 
         next.classList.add("hidden");
         next.classList.remove("shown");
         submit.classList.add("shown");
         submit.classList.remove("hidden");
-    } else if (currentSlide === 2 || currentSlide === 3){
-        var previous = document.getElementById("previous");
+    } else if (currentSlide === 2 || currentSlide === 3) {
         previous.classList.add("shown")
         previous.classList.remove("hidden");
     }
-}
+};
 
 function previousSlide () {
-    var slide = document.getElementsByClassName("slide");
     if (currentSlide === 2) {
-        var previous = document.getElementById("previous");
         previous.classList.add("hidden");
         previous.classList.remove("shown");
-    } else if (currentSlide === slide.length-1){
-        var next = document.getElementById("next");
-        var submit = document.getElementById("submit");
+    } else if (currentSlide === slide.length-1) {
         next.classList.add("shown");
         next.classList.remove("hidden");
         submit.classList.add("hidden");
@@ -824,80 +827,60 @@ function previousSlide () {
     currentSlide = currentSlide -= 1;
     slide[currentSlide].classList.remove("hidden");
     document.getElementsByClassName("message")[currentSlide].innerHTML = "";  
-}
+};
 
 function answerValidation() {
     if (validationList[currentSlide] != true) {
         document.getElementsByClassName("message")[currentSlide].innerHTML = "<p>Please select an option!</p>";
     } else {
-    return true }
-}
+    return true
+    }
+};
 
 function showOneQuestionTwoNext() {
     if (currentSlide === 1 && document.getElementById('foodNo').checked) {
-        var slide = document.getElementsByClassName("slide");
         slide[currentSlide].classList.add("hidden");
         currentSlide += 1
-
     } else if (currentSlide === 2) {
-        var slide = document.getElementsByClassName("slide");
         slide[currentSlide].classList.add("hidden");
         currentSlide += 1
     }
-}
+};
 
 function showOneQuestionTwoPrevious() {
      if (currentSlide === 4 && document.getElementById('foodYes').checked) {
-        var slide = document.getElementsByClassName("slide");
         slide[currentSlide].classList.add("hidden");
         currentSlide -= 1
-
     } else if (currentSlide === 3) {
-        var slide = document.getElementsByClassName("slide");
         slide[currentSlide].classList.add("hidden");
         currentSlide -= 1
     }
-}
+};
 
-
-function displayResults() {
-    var slide = document.getElementsByClassName("slide");
-    slide[currentSlide].classList.add("hidden");
-    currentSlide = currentSlide += 1;
-    var submit = document.getElementById("submit");
-    var previous = document.getElementById("previous");
-    var results = document.getElementById("results");
-    var reset = document.getElementById("reset");
+function showOnlyResetButton() {
     submit.classList.add("hidden");
     submit.classList.remove("shown");
     previous.classList.add("hidden");
     previous.classList.remove("shown");
-    results.classList.toggle("hidden");
     reset.classList.add("shown");
     reset.classList.remove("hidden");
+};
+
+function displayResults() {
+    slide[currentSlide].classList.add("hidden");
+    currentSlide = currentSlide += 1;
+    showOnlyResetButton()
+    results.classList.toggle("hidden");
     topThreeVenues = venueList.slice(0,3);
     var firstPlaceName = topThreeVenues[0].name;
     var secondPlaceName = topThreeVenues[1].name;
     var thirdPlaceName = topThreeVenues[2].name;
     console.log("1. " + firstPlaceName + " 2. " + secondPlaceName + " 3. " + thirdPlaceName);
-    var results = document.getElementById("results");
-    var firstResult = document.getElementById("firstresult");
-    var secondResult = document.getElementById("secondresult");
-    var thirdResult = document.getElementById("thirdresult");
-    var firstHeading = document.querySelector("#firstresult .heading");
-    var secondHeading = document.querySelector("#secondresult .heading");
-    var thirdHeading = document.querySelector("#thirdresult .heading");
-    var firstMap = document.querySelector("#firstresult .map");
-    var secondMap= document.querySelector("#secondresult .map");
-    var thirdMap = document.querySelector("#thirdresult .map");
-    var firstDetails = document.querySelector("#firstresult .details");
-    var secondDetails = document.querySelector("#secondresult .details");
-    var thirdDetails = document.querySelector("#thirdresult .details");
     firstHeading.innerHTML = `<h2>1. ${firstPlaceName}</h2>`;
     secondHeading.innerHTML = `<h2>2. ${secondPlaceName}</h2>`;
     thirdHeading.innerHTML = `<h2>3. ${thirdPlaceName}</h2>`;
     presentResultsData();
-}
+};
 
 function presentResultsData() {
     getFirstPlaceData(presentData);
@@ -906,18 +889,18 @@ function presentResultsData() {
 }
 
 function getFirstPlaceData(first) {
-        var request = {
-            placeId: topThreeVenues[0].placeid,
-            fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
+    var request = {
+        placeId: topThreeVenues[0].placeid,
+        fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
+    }
+    var result = document.querySelectorAll(".details")[0];
+    var service = new google.maps.places.PlacesService(result);
+    service.getDetails(request, callback);
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            place.arrayposition = 0;
+            first(place);
         }
-        var result = document.querySelectorAll(".details")[0];
-        var service = new google.maps.places.PlacesService(result);
-        service.getDetails(request, callback);
-        function callback(place, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    place.arrayposition = 0;
-                    first(place);
-            }
     }
 };
 
@@ -925,58 +908,56 @@ function getSecondPlaceData(second) {
     var request = {
         placeId: topThreeVenues[1].placeid,
         fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
-        }
+    }
     var result = document.querySelectorAll(".details")[1];
     var service = new google.maps.places.PlacesService(result);
     service.getDetails(request, callback);
     function callback(place, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-                place.arrayposition = 1;
-                second(place);
-            }
+            place.arrayposition = 1;
+            second(place);
+        }
     }
 };
 
 function getThirdPlaceData(third) {
-        var request = {
-            placeId: topThreeVenues[2].placeid,
-            fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
+    var request = {
+        placeId: topThreeVenues[2].placeid,
+        fields: ['vicinity','formatted_phone_number','website','url','geometry.location','rating','photo'],
+    }
+    var result = document.querySelectorAll(".details")[2];
+    var service = new google.maps.places.PlacesService(result);
+    service.getDetails(request, callback);
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            place.arrayposition = 2;
+            third(place); 
         }
-        var result = document.querySelectorAll(".details")[2];
-        var service = new google.maps.places.PlacesService(result);
-        service.getDetails(request, callback);
-        function callback(place, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    place.arrayposition = 2;
-                    third(place); 
-            }
     }
 };
 
 function presentData(place) {
-        createMap(place);
-        addPhoto(place);
-        createDetails(place);
-        
-        
+    createMap(place);
+    addPhoto(place);
+    createDetails(place);      
 };
 
 function createMap(place) {
-        var maps = document.getElementsByClassName("map");
-        var map = new google.maps.Map(maps[place.arrayposition], {zoom: 17, center: place.geometry.location});
-        var marker = new google.maps.Marker({position: place.geometry.location, map: map});
-}
+    var maps = document.getElementsByClassName("map");
+    var map = new google.maps.Map(maps[place.arrayposition], {zoom: 17, center: place.geometry.location});
+    var marker = new google.maps.Marker({position: place.geometry.location, map: map});
+};
 
 function addPhoto(place) {
     var photos = place.photos[0];
     if (!photos) {
         return;
-  }
+    } 
     var imageurl = "url(" + photos.getUrl({maxWidth: 500}) + ")";
     document.getElementsByClassName("image")[place.arrayposition].style.backgroundImage = imageurl;
     var credit = document.getElementsByClassName("credit")[place.arrayposition];
     credit.innerHTML = `<p>Image Credit: ${photos.html_attributions}</p>`
-}
+};
 
 function createDetails(place) {
     var details = document.getElementsByClassName("details")[place.arrayposition];
@@ -992,15 +973,12 @@ function createDetails(place) {
                             <li><a href="${googleurl}" target="_blank">Google Maps</a></li>
                             <li>${rating} stars</li>
                         </ul>`;
-}
+};
 
 function backToStart() {
-    var start = document.getElementById("start");
-    var results = document.getElementById("results");
-    var reset = document.getElementById("reset");
     start.classList.toggle("hidden");
     results.classList.toggle("hidden");
     reset.classList.add("hidden");
     reset.classList.remove("shown");
     currentSlide = 0;
-}
+};
