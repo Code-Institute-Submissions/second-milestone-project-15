@@ -78,7 +78,7 @@ h3 {
 }
 
 #slide4 {
-    background-image: url("../images/pizza.jpg");
+    background-image: url("../images/beer.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -119,6 +119,7 @@ h3 {
     -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    transition: background-image 400ms ease;
 }
 
 #slide8 {
@@ -322,6 +323,10 @@ h3 {
 .details a {
     text-decoration: none;
     color: darkslategrey;
+}
+
+.details i {
+    font-size: 1rem;
 }
 
 .hidden {
