@@ -102,7 +102,7 @@ const venueList = [
     score: 0,
     placeid: "ChIJH7RWjniOcUgRuJnqpQHS3IY",
 },
-{   name: "BocaBar Finzels Reach",
+{   name: "Bocabar Finzels",
     food: true,
     pizza: true,
     dancing: false,
@@ -445,16 +445,26 @@ for (i = 0; i < labels.length; i++) {
 }
 )};
 
-let start = document.getElementById("start");
-let slide = document.getElementsByClassName("slide");
-let next = document.getElementById("next");
-let previous = document.getElementById("previous");
-let submit = document.getElementById("submit");
-let results = document.getElementById("results");
-let reset = document.getElementById("reset");
-let firstHeading = document.querySelector("#firstresult .heading");
-let secondHeading = document.querySelector("#secondresult .heading");
-let thirdHeading = document.querySelector("#thirdresult .heading");
+const waitquestion = document.getElementById("slide7");
+const patient = document.getElementById("waitHigh");
+const impatient = document.getElementById("waitLow");
+patient.addEventListener("click", function() {
+    waitquestion.style.backgroundImage = "url('assets/images/buddha.jpg')";
+});
+impatient.addEventListener("click", function() {
+    waitquestion.style.backgroundImage = "url('assets/images/hurry.jpg')";
+});
+
+const start = document.getElementById("start");
+const slide = document.getElementsByClassName("slide");
+const next = document.getElementById("next");
+const previous = document.getElementById("previous");
+const submit = document.getElementById("submit");
+const results = document.getElementById("results");
+const reset = document.getElementById("reset");
+const firstHeading = document.querySelector("#firstresult .heading");
+const secondHeading = document.querySelector("#secondresult .heading");
+const thirdHeading = document.querySelector("#thirdresult .heading");
 
 function submitUserResults() {
 // if radio is checked, add to userResults object
@@ -967,11 +977,11 @@ function createDetails(place) {
     var googleurl = place.url;
     var rating = place.rating;
     details.innerHTML = `<ul>
-                            <li>${vicinity}</li>
-                            <li>${phone}</li>
+                            <li><i class="fas fa-map-marker-alt"></i> ${vicinity}</li>
+                            <li><i class="fas fa-phone-alt"></i> ${phone}</li>
                             <li><a href="${website}" target="_blank">Website</a></li>
                             <li><a href="${googleurl}" target="_blank">Google Maps</a></li>
-                            <li>${rating} stars</li>
+                            <li>${rating} <i class="fas fa-star"></i></li>
                         </ul>`;
 };
 
