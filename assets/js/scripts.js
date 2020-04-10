@@ -10,23 +10,27 @@ let topThreeVenues = [];
 //variable for keeping track of the current slide
 let currentSlide = 0;
 
+//window.addEventListener("load", function () {
+
+//});
+
 const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
     startQuiz();
-})
+});
 
 const previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
     showOneQuestionTwoPrevious();
     previousSlide();
-})
+});
 
 const nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
     if (answerValidation() === true) {
         showOneQuestionTwoNext()
         nextSlide(); }
-})
+});
 
 const submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
@@ -49,6 +53,28 @@ for (let i = 0; i < labels.length; i++) {
         document.getElementsByClassName("message")[currentSlide].innerHTML = "";
 }
 )};
+
+const drinkQuestion = document.getElementById("slide3");
+const lager = document.getElementById("lager");
+const wine = document.getElementById("wine");
+const cocktail = document.getElementById("cocktail");
+const ipa = document.getElementById("ipa");
+const cider = document.getElementById("cider");
+lager.addEventListener("click", function() {
+    drinkQuestion.style.backgroundImage = "url('assets/images/beer.jpg')";
+});
+wine.addEventListener("click", function() {
+    drinkQuestion.style.backgroundImage = "url('assets/images/wine.jpg')";
+});
+cocktail.addEventListener("click", function() {
+    drinkQuestion.style.backgroundImage = "url('assets/images/cocktail.jpg')";
+});
+ipa.addEventListener("click", function() {
+    drinkQuestion.style.backgroundImage = "url('assets/images/ipa.jpg')";
+});
+cider.addEventListener("click", function() {
+    drinkQuestion.style.backgroundImage = "url('assets/images/cider.jpg')";
+});
 
 const gameQuestion = document.getElementById("slide5");
 const boardGames = document.getElementById("board");
