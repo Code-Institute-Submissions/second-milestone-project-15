@@ -27,7 +27,7 @@ h2 {
 }
 
 h3 {
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 #start {
@@ -44,7 +44,7 @@ h3 {
     border-radius: 8px;
 }
 
-#slide1 {
+#slide0 {
     background-image: url("../images/dinner.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide2 {
+#slide1 {
     background-image: url("../images/pizza.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -66,7 +66,7 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide3 {
+#slide2 {
     background-image: url("../images/dancing.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -77,8 +77,20 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide4 {
+#slide3 {
     background-image: url("../images/beer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    transition: background-image 400ms ease;
+}
+
+#slide4 {
+    background-image: url("../images/outside.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -89,7 +101,7 @@ h3 {
 }
 
 #slide5 {
-    background-image: url("../images/pizza.jpg");
+    background-image: url("../images/startgame.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -97,20 +109,10 @@ h3 {
     -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    transition: background-image 400ms ease;
 }
 
 #slide6 {
-    background-image: url("../images/pizza.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-}
-
-#slide7 {
     background-image: url("../images/buddha.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -120,6 +122,17 @@ h3 {
     -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
     transition: background-image 400ms ease;
+}
+
+#slide7 {
+    background-image: url("../images/pizza.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
 #slide8 {
@@ -134,17 +147,6 @@ h3 {
 }
 
 #slide9 {
-    background-image: url("../images/pizza.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
-}
-
-#slide10 {
     background-image: url("../images/livemusic.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -155,7 +157,7 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide11 {
+#slide10 {
     background-image: url("../images/wetherspoons.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -166,7 +168,7 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide12 {
+#slide11 {
     background-image: url("../images/pizza.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -177,7 +179,7 @@ h3 {
     box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.35);
 }
 
-#slide13 {
+#slide12 {
     background-image: url("../images/pizza.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -238,7 +240,7 @@ h3 {
     color: red;
 }
 
-#buttons {
+.buttons {
     margin: 0 auto;
     text-align: center;
 }
@@ -271,7 +273,7 @@ h3 {
 #results {
     width: 100%;
     height: 100%;
-    padding-top: 50px;
+    padding-bottom: 3rem;
     text-align: center;
 }
 
@@ -327,6 +329,20 @@ h3 {
 
 .details i {
     font-size: 1rem;
+}
+
+#intro {
+    font-weight: 700;
+    display: inline-block;
+}
+
+#resultsheading {
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+#resetButton {
+    margin-top: 0;
 }
 
 .hidden {
