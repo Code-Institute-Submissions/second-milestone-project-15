@@ -1,398 +1,3 @@
-//array of every possible venue as objects
-const venueList = [
-{   name: "The Cornubia",
-    food: false,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "high",
-    games: "board",
-    wait: "low",
-    crowd: "high",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "low",
-    score: 0,
-    placeid: "ChIJzQhmhXuOcUgRXXHy3Rvf5tE",
-},
-{   name: "Renatos",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "normal",
-    outside: "low",
-    games: null,
-    wait: "low",
-    crowd: "medium",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJC1hs-niOcUgRMmAhwjDeIuc",
-},
-{   name: "Left Handed Giant",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "ipa",
-    outside: "mediun",
-    games: "pool",
-    wait: "high",
-    crowd: "high",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "high",
-    score: 0,
-    placeid: "ChIJ53EQGYaPcUgRAnYa9mcOgkY",
-},
-{   name: "The Ostrich",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "very high",
-    games: null,
-    wait: "high",
-    crowd: "low",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "low",
-    score: 0,
-    placeid: "ChIJndu6HSiPcUgRD50BTyKxfk8",
-},
-{   name: "The Golden Guinea",
-    food: false,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "low",
-    games: null,
-    wait: "low",
-    crowd: "low",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "low",
-    score: 0,
-    placeid: "ChIJReFPD3-OcUgRuz6qRGuakGA",
-},
-{   name: "The Famous Royal Navy Volunteer",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "ipa",
-    outside: "low",
-    games: null,
-    wait: "medium",
-    crowd: "high",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "high",
-    score: 0,
-    placeid: "ChIJH7RWjniOcUgRuJnqpQHS3IY",
-},
-{   name: "Bocabar Finzels",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "normal",
-    outside: "medium",
-    games: null,
-    wait: "medium",
-    crowd: "high",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJVeKhGtaPcUgRjmyEMWt7RWE",
-},
-{   name: "BrewDog",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "ipa",
-    outside: "low",
-    games: "board",
-    wait: "low",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJZ2lYNXiOcUgRNMNuvKtopyQ",
-},
-{   name: "The Old Duke",
-    food: false,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "medium",
-    games: null,
-    wait: "medium",
-    crowd: "high",
-    traditional: true,
-    dive: false,
-    livemusic: true,
-    spoons: false,
-    noise: "high",
-    score: 0,
-    placeid: "ChIJ34Js-niOcUgRJhPD6HuRvT4",
-},
-{   name: "Kongs",
-    food: false,
-    pizza: false,
-    dancing: true,
-    drinks: "normal",
-    outside: "low",
-    games: "pingpong",
-    wait: "medium",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "high",
-    score: 0,
-    placeid: "ChIJ_XS-j3iOcUgRb34ychUE9GI",
-},
-{   name: "The Beer Emporium",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "ipa",
-    outside: null,
-    games: null,
-    wait: "medium",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJ_XS-j3iOcUgRFgB3qNXySHY",
-},
-{   name: "Small Bar",
-    food: false,
-    pizza: false,
-    dancing: false,
-    drinks: "ipa",
-    outside: "low",
-    games: null,
-    wait: "medium",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJy69AhHiOcUgRyGhXk62AbE0",
-},
-{   name: "The Bank Tavern",
-    food: false,
-    pizza: false,
-    dancing: true,
-    drinks: "normal",
-    outside: "medium",
-    games: null,
-    wait: "low",
-    crowd: "low",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "low",
-    score: 0,
-    placeid: "ChIJX_shlHeOcUgRyx-4dTU_wHU",
-},
-{   name: "The Commercial Rooms",
-    food: false,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: null,
-    games: null,
-    wait: "low",
-    crowd: "high",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: true,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJQ9m_G3iOcUgRTXjrgHPSIgE",
-},
-{   name: "Bambalan",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "cocktail",
-    outside: "high",
-    games: "pingpong",
-    wait: "low",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJKxoOjNeNcUgR4Qvd19ViLnc",
-},
-{   name: "The Mother's Ruin",
-    food: false,
-    pizza: false,
-    dancing: true,
-    drinks: "normal",
-    outside: null,
-    games: null,
-    wait: "low",
-    crowd: "high",
-    traditional: false,
-    dive: true,
-    livemusic: true,
-    spoons: false,
-    noise: "high",
-    score: 0,
-    placeid: "ChIJwcOwNniOcUgRfNWwiAPTZNc",
-},
-{   name: "The Old Fish Market",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: null,
-    games: "board",
-    wait: "low",
-    crowd: "medium",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJBetiNniOcUgR7OrTvV6pVVk",
-},
-{   name: "The Stable",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "cider",
-    outside: null,
-    games: null,
-    wait: "medium",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: true,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJ4X5MU9aNcUgRCkWpNFl-4k0",
-},
-{   name: "King Street Brew House",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "normal",
-    outside: null,
-    games: "board",
-    wait: "low",
-    crowd: "medium",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJs_-N9niOcUgRASDu5HB59I0",
-},
-{   name: "Ye Shakespeare",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "low",
-    games: null,
-    wait: "low",
-    crowd: "high",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJK9_tunuOcUgRPDBijQJU7CE",
-},
-{   name: "The Knights Templar",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "medium",
-    games: null,
-    wait: "low",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: true,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJO9evu2SOcUgRm3Gz4vrc3QM",
-},
-{   name: "The Bay Horse",
-    food: true,
-    pizza: false,
-    dancing: false,
-    drinks: "normal",
-    outside: "low",
-    games: "board",
-    wait: "medium",
-    crowd: "medium",
-    traditional: true,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "medium",
-    score: 0,
-    placeid: "ChIJy64-ftiNcUgRFnty7yRuWsE",
-},
-{   name: "The Sidings",
-    food: true,
-    pizza: true,
-    dancing: false,
-    drinks: "normal",
-    outside: null,
-    games: null,
-    wait: "low",
-    crowd: "medium",
-    traditional: false,
-    dive: false,
-    livemusic: false,
-    spoons: false,
-    noise: "low",
-    score: 0,
-    placeid: "ChIJAQDwxnyOcUgRyqFsut_6ihg",
-},
-];
-
 //object that records the answers given by the user
 const userResults = {};
 
@@ -438,21 +43,39 @@ resetButton.addEventListener("click", function(){
 });
 
 const labels = document.getElementsByTagName("label");
-for (i = 0; i < labels.length; i++) {
+for (let i = 0; i < labels.length; i++) {
     labels[i].addEventListener("click", function(){
         validationList[currentSlide] = true;
         document.getElementsByClassName("message")[currentSlide].innerHTML = "";
 }
 )};
 
-const waitquestion = document.getElementById("slide7");
+const gameQuestion = document.getElementById("slide5");
+const boardGames = document.getElementById("board");
+const pool = document.getElementById("pool");
+const pingPong = document.getElementById("pingpong");
+const noGame = document.getElementById("gamesNo");
+boardGames.addEventListener("click", function() {
+    gameQuestion.style.backgroundImage = "url('assets/images/boardgame.jpg')";
+});
+pool.addEventListener("click", function() {
+    gameQuestion.style.backgroundImage = "url('assets/images/pool.jpg')";
+});
+pingPong.addEventListener("click", function() {
+    gameQuestion.style.backgroundImage = "url('assets/images/pingpong.jpg')";
+});
+noGame.addEventListener("click", function() {
+    gameQuestion.style.backgroundImage = "url('assets/images/startgame.jpg')";
+});
+
+const waitQuestion = document.getElementById("slide6");
 const patient = document.getElementById("waitHigh");
 const impatient = document.getElementById("waitLow");
 patient.addEventListener("click", function() {
-    waitquestion.style.backgroundImage = "url('assets/images/buddha.jpg')";
+    waitQuestion.style.backgroundImage = "url('assets/images/buddha.jpg')";
 });
 impatient.addEventListener("click", function() {
-    waitquestion.style.backgroundImage = "url('assets/images/hurry.jpg')";
+    waitQuestion.style.backgroundImage = "url('assets/images/hurry.jpg')";
 });
 
 const start = document.getElementById("start");
@@ -633,14 +256,14 @@ function calculateTotalScore() {
 };
 
 function resetScoresToZero() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         venueList[i].score = 0;
     }
 };
 
 //compare user results with scores of venue list array
 function addFoodScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].food === true && userResults.food === true) {
         venueList[i].score += 15
         } else if (venueList[i].food === false && userResults.food === true) {
@@ -650,7 +273,7 @@ function addFoodScore() {
 };
 
 function addPizzaScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].pizza === userResults.pizza) {
         venueList[i].score += 10
         } else
@@ -659,7 +282,7 @@ function addPizzaScore() {
 };
 
 function addDancingScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].dancing === true && userResults.dancing === true) {
         venueList[i].score += 15
         } else if (venueList[i].dancing === false && userResults.dancing === true) {
@@ -669,7 +292,7 @@ function addDancingScore() {
 };
 
 function addDrinksScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].drinks === userResults.drinks && venueList[i].drinks != "normal") {
         venueList[i].score += 10
         }
@@ -677,7 +300,7 @@ function addDrinksScore() {
 };
 
 function addGamesScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].games === userResults.games && venueList[i].games != null) {
         venueList[i].score += 7
         }
@@ -685,7 +308,7 @@ function addGamesScore() {
 };
 
 function addWaitScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (userResults.wait === "high") {
         venueList[i].score += 10
         } else if ((venueList[i].wait === "medium" || venueList[i].wait === "low") && userResults.wait === "medium") {
@@ -701,7 +324,7 @@ function addWaitScore() {
 };
 
 function addOutsideScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].outside === "very high" && userResults.outside === "high") {
         venueList[i].score += 12
         } else if (venueList[i].outside === "very high" && userResults.outside === "medium") {
@@ -725,8 +348,8 @@ function addOutsideScore() {
 };
 
 function addCrowdedScore() {
-    for(var i = 0; i < venueList.length; i++) {
-        if ((venueList[i].crowd === "high" || venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "high") {
+    for(let i = 0; i < venueList.length; i++) {
+        if (userResults.crowd === "high") {
         venueList[i].score += 10
         } else if ((venueList[i].crowd === "medium" || venueList[i].crowd === "low") && userResults.crowd === "medium") {
         venueList[i].score += 10
@@ -737,7 +360,7 @@ function addCrowdedScore() {
 };
 
 function addTraditionalScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].traditional === true && userResults.traditional === "yes") {
         venueList[i].score += 15
         } else if (venueList[i].traditional === true && userResults.traditional === "no") {
@@ -747,7 +370,7 @@ function addTraditionalScore() {
 };
 
 function addDiveScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].dive === userResults.dive) {
         venueList[i].score += 15
         }
@@ -755,7 +378,7 @@ function addDiveScore() {
 };
 
 function addLiveMusicScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].livemusic === true && userResults.livemusic === true) {
         venueList[i].score += 15
         } else if (venueList[i].livemusic === false && userResults.livemusic === true) {
@@ -765,7 +388,7 @@ function addLiveMusicScore() {
 };
 
 function addSpoonsScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].spoons === true && userResults.spoons === "love") {
         venueList[i].score += 15
         } else if (venueList[i].spoons === true && userResults.spoons === "no") {
@@ -775,7 +398,7 @@ function addSpoonsScore() {
 };
 
 function addNoiseScore() {
-    for (var i = 0; i < venueList.length; i++) {
+    for (let i = 0; i < venueList.length; i++) {
         if (userResults.noise === "high") {
         venueList[i].score += 15
         } else if ((venueList[i].noise === "medium" || venueList[i].noise === "low") && userResults.noise === "medium") {
@@ -790,8 +413,8 @@ function addNoiseScore() {
 
 //adds a random number less than 1 to each score as a tiebreaker
 function addRandomNumber() {
-    for (var i = 0; i < venueList.length; i++) {
-        var random = Math.round(Math.random() * 100) / 100;
+    for (let i = 0; i < venueList.length; i++) {
+        let random = Math.round(Math.random() * 100) / 100;
         venueList[i].score += random;
     }
 };
@@ -882,9 +505,9 @@ function displayResults() {
     showOnlyResetButton()
     results.classList.toggle("hidden");
     topThreeVenues = venueList.slice(0,3);
-    var firstPlaceName = topThreeVenues[0].name;
-    var secondPlaceName = topThreeVenues[1].name;
-    var thirdPlaceName = topThreeVenues[2].name;
+    let firstPlaceName = topThreeVenues[0].name;
+    let secondPlaceName = topThreeVenues[1].name;
+    let thirdPlaceName = topThreeVenues[2].name;
     console.log("1. " + firstPlaceName + " 2. " + secondPlaceName + " 3. " + thirdPlaceName);
     firstHeading.innerHTML = `<h2>1. ${firstPlaceName}</h2>`;
     secondHeading.innerHTML = `<h2>2. ${secondPlaceName}</h2>`;
@@ -970,12 +593,12 @@ function addPhoto(place) {
 };
 
 function createDetails(place) {
-    var details = document.getElementsByClassName("details")[place.arrayposition];
-    var vicinity = place.vicinity;
-    var phone = place.formatted_phone_number;
-    var website = place.website;
-    var googleurl = place.url;
-    var rating = place.rating;
+    let details = document.getElementsByClassName("details")[place.arrayposition];
+    let vicinity = place.vicinity;
+    let phone = place.formatted_phone_number;
+    let website = place.website;
+    let googleurl = place.url;
+    let rating = place.rating;
     details.innerHTML = `<ul>
                             <li><i class="fas fa-map-marker-alt"></i> ${vicinity}</li>
                             <li><i class="fas fa-phone-alt"></i> ${phone}</li>
