@@ -5,6 +5,7 @@ body {
     background: rgb(56,55,54);
     background: linear-gradient(90deg, rgba(56,55,54,1) 0%, rgb(139, 139, 139) 50%, rgba(56,55,54,1) 100%);
     font-size: 1.75rem;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -31,10 +32,23 @@ h3 {
 }
 
 #start {
-    width: 400px;
-    height: 550px;
-    margin: 0 auto;
     text-align: center;
+    width: 100%;
+    margin: 2rem 0 0 0;
+}
+
+#startButton {
+    margin: 3.5rem auto;
+    display: block;
+}
+
+.img-container {
+    display: inline-block;
+}
+
+.img-container img {
+    border-radius: 8px;
+    width: 600px;
 }
 
 .slide {
@@ -334,6 +348,8 @@ h3 {
 #intro {
     font-weight: 700;
     display: inline-block;
+    vertical-align: top;
+    margin: 0 2rem 0 2rem;
 }
 
 #resultsheading {
