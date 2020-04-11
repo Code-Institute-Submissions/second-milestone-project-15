@@ -10,9 +10,15 @@ let topThreeVenues = [];
 //variable for keeping track of the current slide
 let currentSlide = 0;
 
-//window.addEventListener("load", function () {
-
-//});
+const intro = document.querySelectorAll("#intro p");
+    window.addEventListener("load", function () {
+        for (let i = 0; i < intro.length; i++) {
+            intro[i].classList.remove("invisible");
+        };
+            document.getElementById("bristol").classList.remove("invisible"); 
+            document.getElementById("cheers").classList.remove("invisible");
+            document.getElementById("startButton").classList.remove("invisible");
+});
 
 const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
