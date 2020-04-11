@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Bitter', serif;
-    background: rgb(56,55,54);
-    background: linear-gradient(90deg, rgba(56,55,54,1) 0%, rgb(139, 139, 139) 50%, rgba(56,55,54,1) 100%);
+    background: rgb(52,52,52);
+    background: linear-gradient(90deg, rgba(52,52,52,1) 6%, rgba(223,226,232,1) 50%, rgba(52,52,52,1) 94%);
     font-size: 1.75rem;
     min-height: 100vh;
     margin: 0;
@@ -40,6 +40,7 @@ h3 {
 #startButton {
     margin: 3.5rem auto;
     display: block;
+    transition: opacity 10000ms ease-out;
 }
 
 .img-container {
@@ -49,6 +50,14 @@ h3 {
 .img-container img {
     border-radius: 8px;
     width: 600px;
+}
+
+#bristol {
+    transition: opacity 2000ms ease-out;
+}
+
+#cheers {
+    transition: opacity 9000ms ease-out;
 }
 
 .slide {
@@ -352,6 +361,26 @@ h3 {
     margin: 0 2rem 0 2rem;
 }
 
+#intro p:nth-of-type(1) {
+    transition: opacity 1000ms ease-in-out;
+}
+
+#intro p:nth-of-type(2) {
+    transition: opacity 5000ms ease-in-out;
+}
+
+#intro p:nth-of-type(3) {
+    transition: opacity 8000ms ease-in-out;
+}
+
+#intro p:nth-of-type(4) {
+    transition: opacity 10000ms ease-in-out;
+}
+
+#intro p:nth-of-type(5) {
+    transition: opacity 11000ms ease-in-out;
+}
+
 #resultsheading {
     margin-top: 0;
     margin-bottom: 3rem;
@@ -367,4 +396,8 @@ h3 {
 
 .shown {
     display: inline-block;
+}
+
+.invisible {
+    opacity: 0;
 }
