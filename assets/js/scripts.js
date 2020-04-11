@@ -1,15 +1,16 @@
-//object that records the answers given by the user
+//object that will store the answers given by the user
 const userResults = {};
 
-//array that adds a true for each question that has an answer selected
+//array that receives a true for each question that has an answer selected, in order of the questions
 const validationList = [true];
 
-//array for the top three responses based on score
+//array for the top three venue objects based on score
 let topThreeVenues = [];
 
 //variable for keeping track of the current slide
 let currentSlide = 0;
 
+//removes invisible class from start page elements on page load, resulting in CSS transition fade in
 const intro = document.querySelectorAll("#intro p");
     window.addEventListener("load", function () {
         for (let i = 0; i < intro.length; i++) {
@@ -20,17 +21,21 @@ const intro = document.querySelectorAll("#intro p");
             document.getElementById("startButton").classList.remove("invisible");
 });
 
+//when the start button is clicked, run the startQuiz function 
 const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function(){
     startQuiz();
 });
 
+//when the previous button is clicked, run the showOneQuestionTwoPrevious and previousSlide functions 
 const previousButton = document.getElementById("previousButton");
 previousButton.addEventListener("click", function() {
     showOneQuestionTwoPrevious();
     previousSlide();
 });
 
+//when the next button is clicked, run the nextSlide function
+//but only if answerValidation has returned true
 const nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
     if (answerValidation() === true) {
@@ -38,6 +43,8 @@ nextButton.addEventListener("click", function() {
         nextSlide(); }
 });
 
+//when the submit results button is clicked, run the submitUserResults, calculateTotalScore, sortListByScore and displayResults functions
+//but only if answerValidation has returned true
 const submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
     if (answerValidation() === true) {
@@ -47,11 +54,16 @@ submitButton.addEventListener("click", function() {
         displayResults(); }
 });
 
+//when the back to start button is clicked, run the backToStart function
 const resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", function(){
     backToStart();
 });
 
+//each label is an answer to a question, and each is a radio button input
+//when a label is clicked, update the validationList array in the position that is equal to the currentSlide number
+//this keeps track of every question that has received an answer
+//then set the html of the validation message to empty to remove the warning message
 const labels = document.getElementsByTagName("label");
 for (let i = 0; i < labels.length; i++) {
     labels[i].addEventListener("click", function(){
@@ -60,6 +72,8 @@ for (let i = 0; i < labels.length; i++) {
 }
 )};
 
+//for the drinks question, change the background when an answer is clicked
+//the background corresponds to the answer that is clicked
 const drinkQuestion = document.getElementById("slide3");
 const lager = document.getElementById("lager");
 const wine = document.getElementById("wine");
@@ -82,6 +96,8 @@ cider.addEventListener("click", function() {
     drinkQuestion.style.backgroundImage = "url('assets/images/cider.jpg')";
 });
 
+//for the games question, change the background when an answer is clicked
+//the background corresponds to the answer that is clicked
 const gameQuestion = document.getElementById("slide5");
 const boardGames = document.getElementById("board");
 const pool = document.getElementById("pool");
@@ -100,6 +116,8 @@ noGame.addEventListener("click", function() {
     gameQuestion.style.backgroundImage = "url('assets/images/startgame.jpg')";
 });
 
+//for the waiting question, change the background when an answer is clicked
+//the background corresponds to the answer that is clicked
 const waitQuestion = document.getElementById("slide6");
 const patient = document.getElementById("waitHigh");
 const impatient = document.getElementById("waitLow");
@@ -110,6 +128,7 @@ impatient.addEventListener("click", function() {
     waitQuestion.style.backgroundImage = "url('assets/images/hurry.jpg')";
 });
 
+//constant declarations
 const start = document.getElementById("start");
 const slide = document.getElementsByClassName("slide");
 const questionsContainer = document.getElementById("questionsContainer");
@@ -122,8 +141,8 @@ const firstHeading = document.querySelector("#firstresult .heading");
 const secondHeading = document.querySelector("#secondresult .heading");
 const thirdHeading = document.querySelector("#thirdresult .heading");
 
+//runs all of the submit results functions
 function submitUserResults() {
-// if radio is checked, add to userResults object
     submitFoodResult();
     submitPizzaResult();
     submitDancingResult();
@@ -139,6 +158,9 @@ function submitUserResults() {
     submitNoiseResult();
 };
 
+//the following functions correspond to each question
+//each one checks which answer the user has selected
+//then updates the userResults object to record that answer
 function submitFoodResult() {
     if (document.getElementById('foodYes').checked) {
         userResults.food = true;
@@ -269,7 +291,7 @@ function submitNoiseResult() {
     }
 };
 
-//calculates the points awarded by each question
+//first runs the resetScoresToZero function, then each function that adds points based on user results to work out the total score of each venue
 function calculateTotalScore() {
     resetScoresToZero()
     addFoodScore()
@@ -288,13 +310,17 @@ function calculateTotalScore() {
     addRandomNumber()
 };
 
+//resets each venue object's score to zero
+//so that previous runthroughs do not impact the score of this one
 function resetScoresToZero() {
     for (let i = 0; i < venueList.length; i++) {
         venueList[i].score = 0;
     }
 };
 
-//compare user results with scores of venue list array
+//the following functions compare every venue objects' property value with the userResult property value
+//points are awarded or taken away depending on the values
+//these points go to each venue objects' score value
 function addFoodScore() {
     for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].food === true && userResults.food === true) {
@@ -444,7 +470,7 @@ function addNoiseScore() {
     }
 };
 
-//adds a random number less than 1 to each score as a tiebreaker
+//adds a random number less than 1 to each score as a tiebreaker for when scores are equal
 function addRandomNumber() {
     for (let i = 0; i < venueList.length; i++) {
         let random = Math.round(Math.random() * 100) / 100;
@@ -452,11 +478,13 @@ function addRandomNumber() {
     }
 };
 
-//sorts the list by score, with highest first
+//sorts the venueList array by the value of each venue objects' score, from highest to lowest
 function sortListByScore() {
     venueList.sort(function(x, y){return y.score - x.score});
 };
 
+//startQuiz runs the nextSlide function, then shows the next button and the question container and hides the start slide
+//the display property of elements is managed by the shown and hidden classes
 function startQuiz() {
     nextSlide()
     next.classList.add("shown");
@@ -465,6 +493,12 @@ function startQuiz() {
     questionsContainer.classList.remove("hidden");
 };
 
+//nextSlide first hides the slide with the value of currentSlide, then adds 1 to currentSlide
+//on the first slide, which is slide 0, the currentSlide will also be set to 0, so the currentSlide value should always match
+//after updating the value, it then shows the slide which matches the new value, which should be the next slide
+//it also checks to see if it is on the last slide, in which case it would hide the next button and show the submit results button
+//it also checks to see if it is on question 2, in which case it would show previous button which would have been hidden on the first question
+//as there are two question 2s, this could be slide 2 or 3
 function nextSlide() {
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide += 1;
@@ -480,6 +514,10 @@ function nextSlide() {
     }
 };
 
+//previousSlide is like nextSlide in reverse
+//it firsts checks if the currentSlide is 2, and if so it hides the previous button, this is to hide the button on slide 1
+//it also checks to see if the currentSlide is the final slide, and if so it hides the submit button and shows the next button
+//then it hides the current slide, reduces the currentSlide value by 1, and shows the new current slide
 function previousSlide () {
     if (currentSlide === 2) {
         previous.classList.add("hidden");
@@ -492,10 +530,12 @@ function previousSlide () {
     }
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide -= 1;
-    slide[currentSlide].classList.remove("hidden");
-    document.getElementsByClassName("message")[currentSlide].innerHTML = "";  
+    slide[currentSlide].classList.remove("hidden");  
 };
 
+//answerValidation checks that validationList array has a true value for the currentSlide value (i.e. an answer has been clicked)
+//if it doesn't, it updates the message html with the warning text
+//if it does, it returns true
 function answerValidation() {
     if (validationList[currentSlide] != true) {
         document.getElementsByClassName("message")[currentSlide].innerHTML = "<p>Please select an option!</p>";
@@ -504,26 +544,25 @@ function answerValidation() {
     }
 };
 
+//as there are two possible question 2s, the following two functions ensure that only one question 2 is shown
+//which question 2 is shown depends on the answer selected for question 1
+//they run in addition to the nextSlide and previousSlide functions, so may increase or decrease the currentSlide by an additional 1
+//this is how an extra question 2 is skipped
 function showOneQuestionTwoNext() {
-    if (currentSlide === 1 && document.getElementById('foodNo').checked) {
-        slide[currentSlide].classList.add("hidden");
-        currentSlide += 1
-    } else if (currentSlide === 2) {
+    if ((currentSlide === 1 && document.getElementById('foodNo').checked) || (currentSlide === 2)) {
         slide[currentSlide].classList.add("hidden");
         currentSlide += 1
     }
 };
 
 function showOneQuestionTwoPrevious() {
-     if (currentSlide === 4 && document.getElementById('foodYes').checked) {
-        slide[currentSlide].classList.add("hidden");
-        currentSlide -= 1
-    } else if (currentSlide === 3) {
+     if ((currentSlide === 4 && document.getElementById('foodYes').checked) || (currentSlide === 3)) {
         slide[currentSlide].classList.add("hidden");
         currentSlide -= 1
     }
 };
 
+//hides the previous and submit buttons and shows the reset button AKA back to start button
 function showOnlyResetButton() {
     submit.classList.add("hidden");
     submit.classList.remove("shown");
@@ -533,6 +572,11 @@ function showOnlyResetButton() {
     reset.classList.remove("hidden");
 };
 
+//first hides the current slide and questions container, then updates the current slide value, and runs showOnlyResetButton
+//then shows the results div
+//topThreeVenues is updated with the first three venues of the venueList, after it has been sorted by venue scores
+//the names of the three venues are then used to update the results heading divs
+//then presentResultsData is run
 function displayResults() {
     slide[currentSlide].classList.add("hidden");
     questionsContainer.classList.add("hidden");
@@ -550,12 +594,17 @@ function displayResults() {
     presentResultsData();
 };
 
+//presentResultsData runs the three functions for getting and presenting the data of the top three venues
 function presentResultsData() {
     getFirstPlaceData(presentData);
     getSecondPlaceData(presentData);
     getThirdPlaceData(presentData);
 }
 
+//the following three functions get place data from the the Google Places API, using the Google placeIds stored in each venue object
+//the "fields" below show what data is requested
+//the data is retrieved as an object using a callback function, then this object is passed into another callback function
+//an arrayposition property is created for the object, to keep track of which venue it belongs to
 function getFirstPlaceData(first) {
     var request = {
         placeId: topThreeVenues[0].placeid,
@@ -604,18 +653,27 @@ function getThirdPlaceData(third) {
     }
 };
 
+//presentData is passed into the presentResultsData function
+//it takes the place data retrieved from the previous three functions as an argument
+//it runs the createMap, addPhoto and createDetails functions, with that same data being passed into each
 function presentData(place) {
     createMap(place);
     addPhoto(place);
     createDetails(place);      
 };
 
+//uses the Google Maps API to generate a Google Map centered on the venue location, using the location place data
+//the arrayposition is used to select the correct div
 function createMap(place) {
     var maps = document.getElementsByClassName("map");
     var map = new google.maps.Map(maps[place.arrayposition], {zoom: 17, center: place.geometry.location});
     var marker = new google.maps.Marker({position: place.geometry.location, map: map});
 };
 
+//first checks that the place data contains photos, which are stored in an array
+//if so, generates a url of the first photo in the array and uses it as the background image of the image div
+//also adds an image credit, using the name taken from the html_attributions property, as this is a Google Places requirement
+//the arrayposition is used to select the correct div
 function addPhoto(place) {
     var photos = place.photos[0];
     if (!photos) {
@@ -627,6 +685,9 @@ function addPhoto(place) {
     credit.innerHTML = `<p>Image Credit: ${photos.html_attributions}</p>`
 };
 
+//uses the place data to create an html list
+//the i elements are Font Awesome icons
+//the arrayposition is used to select the correct div
 function createDetails(place) {
     let details = document.getElementsByClassName("details")[place.arrayposition];
     let vicinity = place.vicinity;
@@ -643,6 +704,8 @@ function createDetails(place) {
                         </ul>`;
 };
 
+//hides the results and shows the start screen, then hides the reset button
+//resets the currentSlide value back to 0
 function backToStart() {
     start.classList.toggle("hidden");
     results.classList.toggle("hidden");
