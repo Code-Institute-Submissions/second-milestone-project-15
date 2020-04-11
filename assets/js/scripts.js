@@ -112,6 +112,7 @@ impatient.addEventListener("click", function() {
 
 const start = document.getElementById("start");
 const slide = document.getElementsByClassName("slide");
+const questionsContainer = document.getElementById("questionsContainer");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 const submit = document.getElementById("submit");
@@ -460,7 +461,8 @@ function startQuiz() {
     nextSlide()
     next.classList.add("shown");
     next.classList.remove("hidden");
-    start.classList.add("hidden"); 
+    start.classList.add("hidden");
+    questionsContainer.classList.remove("hidden");
 };
 
 function nextSlide() {
@@ -533,6 +535,7 @@ function showOnlyResetButton() {
 
 function displayResults() {
     slide[currentSlide].classList.add("hidden");
+    questionsContainer.classList.add("hidden");
     currentSlide = currentSlide += 1;
     showOnlyResetButton()
     results.classList.toggle("hidden");
