@@ -2,6 +2,7 @@
 const userResults = {};
 
 //array that receives a true for each question that has an answer selected, in order of the questions
+//used to check if a question has received an answer
 const validationList = [true];
 
 //array for the top three venue objects based on score
@@ -34,8 +35,7 @@ previousButton.addEventListener("click", function() {
     previousSlide();
 });
 
-//when the next button is clicked, run the nextSlide function
-//but only if answerValidation has returned true
+//when the next button is clicked, run the nextSlide function, but only if answerValidation has returned true
 const nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", function() {
     if (answerValidation() === true) {
@@ -43,8 +43,7 @@ nextButton.addEventListener("click", function() {
         nextSlide(); }
 });
 
-//when the submit results button is clicked, run the submitUserResults, calculateTotalScore, sortListByScore and displayResults functions
-//but only if answerValidation has returned true
+//when the submit results button is clicked, run the listed functions, but only if answerValidation has returned true
 const submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function() {
     if (answerValidation() === true) {
@@ -72,8 +71,7 @@ for (let i = 0; i < labels.length; i++) {
     }
 )};
 
-//for the drinks question, change the background when an answer is clicked
-//the background corresponds to the answer that is clicked
+//for the drinks question, changes the background when an answer is clicked
 const drinkQuestion = document.getElementById("slide3");
 const lager = document.getElementById("lager");
 const wine = document.getElementById("wine");
@@ -96,8 +94,7 @@ cider.addEventListener("click", function() {
     drinkQuestion.style.backgroundImage = "url('assets/images/cider.jpg')";
 });
 
-//for the games question, change the background when an answer is clicked
-//the background corresponds to the answer that is clicked
+//for the games question, changes the background when an answer is clicked
 const gameQuestion = document.getElementById("slide5");
 const boardGames = document.getElementById("board");
 const pool = document.getElementById("pool");
@@ -116,8 +113,7 @@ noGame.addEventListener("click", function() {
     gameQuestion.style.backgroundImage = "url('assets/images/startgame.jpg')";
 });
 
-//for the waiting question, change the background when an answer is clicked
-//the background corresponds to the answer that is clicked
+//for the waiting question, changes the background when an answer is clicked
 const waitQuestion = document.getElementById("slide6");
 const patient = document.getElementById("waitHigh");
 const impatient = document.getElementById("waitLow");
@@ -319,8 +315,8 @@ function resetScoresToZero() {
 }
 
 //the following functions compare every venue objects' property value with the userResult property value
-//points are awarded or taken away depending on the values
-//these points go to each venue objects' score value
+//points are awarded or taken away from the venue's score depending on the values
+//thus creating scores that reflect the user's input
 function addFoodScore() {
     for (let i = 0; i < venueList.length; i++) {
         if (venueList[i].food === true && userResults.food === true) {
@@ -498,7 +494,7 @@ function startQuiz() {
 //after updating the value, it then shows the slide which matches the new value, which should be the next slide
 //it also checks to see if it is on the last slide, in which case it would hide the next button and show the submit results button
 //it also checks to see if it is on question 2, in which case it would show previous button which would have been hidden on the first question
-//as there are two question 2s, this could be slide 2 or 3
+//as there are two question 2s, this could be currentSlide 2 or 3
 function nextSlide() {
     slide[currentSlide].classList.add("hidden");
     currentSlide = currentSlide += 1;
@@ -572,11 +568,11 @@ function showOnlyResetButton() {
     reset.classList.remove("hidden");
 }
 
-//first hides the current slide and questions container, then updates the current slide value, and runs showOnlyResetButton
+//first hides the questions, then updates the current slide value, and runs showOnlyResetButton
 //then shows the results div
-//topThreeVenues is updated with the first three venues of the venueList, after it has been sorted by venue scores
+//topThreeVenues is updated with the first three venues of the venueList, which should be sorted by score
 //the names of the three venues are then used to update the results heading divs
-//then presentResultsData is run
+//then the rest of the data is presented with presentResultsData
 function displayResults() {
     slide[currentSlide].classList.add("hidden");
     questionsContainer.classList.add("hidden");
@@ -604,7 +600,7 @@ function presentResultsData() {
 //the following three functions get place data from the the Google Places API, using the Google placeIds stored in each venue object
 //the "fields" below show what data is requested
 //the data is retrieved as an object using a callback function, then this object is passed into another callback function
-//an arrayposition property is created for the object, to keep track of which venue it belongs to
+//an arrayposition property is created for the object, to place the data into the correct html location
 function getFirstPlaceData(first) {
     var request = {
         placeId: topThreeVenues[0].placeid,
@@ -653,9 +649,7 @@ function getThirdPlaceData(third) {
     }
 }
 
-//presentData is passed into the presentResultsData function
-//it takes the place data retrieved from the previous three functions as an argument
-//it runs the createMap, addPhoto and createDetails functions, with that same data being passed into each
+//presentData is passed into the presentResultsData function, so that the place data is passed to it
 function presentData(place) {
     createMap(place);
     addPhoto(place);
@@ -670,7 +664,7 @@ function createMap(place) {
     var marker = new google.maps.Marker({position: place.geometry.location, map: map});
 }
 
-//first checks that the place data contains photos, which are stored in an array
+//first checks that the place data contains photos that can actually be used, which are stored in an array
 //if so, generates a url of the first photo in the array and uses it as the background image of the image div
 //also adds an image credit, using the name taken from the html_attributions property, as this is a Google Places requirement
 //the arrayposition is used to select the correct div
@@ -705,7 +699,7 @@ function createDetails(place) {
 }
 
 //hides the results and shows the start screen, then hides the reset button
-//resets the currentSlide value back to 0
+//resets the currentSlide value back to 0 so that it stays consistent with the slide being shown
 function backToStart() {
     start.classList.toggle("hidden");
     results.classList.toggle("hidden");
