@@ -166,23 +166,27 @@ function submitFoodResult() {
 }
 
 function submitPizzaResult() {
-    if (document.getElementById('pizzaYes').checked) {
-        userResults.pizza = true;
-        userResults.dancing = null;
-    } else if (document.getElementById('pizzaNo').checked) {
-        userResults.pizza = false;
-        userResults.dancing = null;
+    if (document.getElementById('foodYes').checked) {
+        if (document.getElementById('pizzaYes').checked) {
+            userResults.pizza = true;
+            userResults.dancing = null;
+        } else if (document.getElementById('pizzaNo').checked) {
+            userResults.pizza = false;
+            userResults.dancing = null;
+        } 
     } else
         userResults.pizza = null;
 }
 
 function submitDancingResult() {
-    if (document.getElementById('danceYes').checked) {
-        userResults.dancing = true;
-        userResults.pizza = null;
-    } else if (document.getElementById('danceNo').checked) {
-        userResults.dancing = false;
-        userResults.pizza = null;
+    if (document.getElementById('foodNo').checked) {
+        if (document.getElementById('danceYes').checked) {
+            userResults.dancing = true;
+            userResults.pizza = null;
+        } else if (document.getElementById('danceNo').checked) {
+            userResults.dancing = false;
+            userResults.pizza = null;
+        }
     } else
         userResults.dancing = null;
 }
