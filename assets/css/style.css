@@ -191,6 +191,7 @@ h3 {
     margin-bottom: 5rem;
     margin-top: 2rem;
     font-size: 1.5rem;
+    padding-left: 0;
 }
 
 .details i {
@@ -333,22 +334,19 @@ h3 {
 
 /* MEDIA QUERIES */
 
-
+/* hides the cheers image on the start screen when the width is too low */
 @media (max-width: 1890px) {
-    #cheers {
-        display: none;
-    }
     .slide {
         margin-top: 1rem;
     }
+    #cheers {
+        display: none;
+    }
 }
-
+/* hides the Bristol image on the start screen and reduces font size*/
 @media (max-width: 1365px) {
     h1 {
         font-size: 2.5rem;
-    }
-    #bristol {
-        display: none;
     }
     .question {
         font-size: 1.5rem;
@@ -362,8 +360,11 @@ h3 {
     .message p {
         margin-top: 0.5rem;
     }
+    #bristol {
+        display: none;
+    }
 }
-
+/* shows the Bristol image if there is enough height */
 @media (min-height: 1300px) {
     #bristol {
         display: inline-block;
@@ -377,57 +378,52 @@ h3 {
     .slide {
         width: 95%;
     }
-    #start {
-        margin-top: 0;
-    }
     .navbuttons {
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
+    #start {
+        margin-top: 0;
+    }
+    #resultsheading {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
+/* centers the image credit on the results page once image is pushed centrally */
 @media (max-width: 1006px) {
     .credit {
         text-align: center;
     }
 }
 
+@media (max-height: 850px) {
+    header {
+        padding-bottom: 0rem;
+        padding-top: 1rem;
+    }
+    .navbuttons {
+        margin-top: 0.5rem;
+    }
+}
+
+/* most modern mobile phones */
 @media (max-width: 500px) {
     body {
         font-size: 1.25rem;
     }
-    header {
-        padding-top: 1rem;
-        padding-bottom: 1.25rem;
-    }
-    #start {
-        margin-top: 0;
-        height: 60%;
-    }
-    #startButton {
-        margin: 2rem auto;
-    }
     h1 {
         font-size: 2.25rem;
     }
-    #questionsContainer {
-        min-height: 330px;
-    }
     .slide {
         height: 100%;
-        margin-top: 1rem;
     }
     .question-slide {
         height: 100%;
         width: 100%;
         top: 0%;
         background-color: rgba(255, 255, 255, 0.85);
-    }
-    .navbuttons {
-        margin-top: 1rem;
-        min-width: 100px;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
     }
     .question {
         font-size: 1.5rem;
@@ -438,11 +434,12 @@ h3 {
     .message {
         font-size: 1.25rem;
     }
-    .map {
-        width: 100%;
-        height: 250px;
+    .navbuttons {
+        min-width: 100px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
-    .image {
+    .map, .image {
         width: 100%;
         height: 250px;
     }
@@ -452,27 +449,28 @@ h3 {
     .details i {
         font-size: 0.75rem;
     }
-
+    #start {
+        margin-top: 0;
+        height: 60%;
+    }
+    #startButton {
+        margin: 2rem auto;
+    }
+    #questionsContainer {
+        min-height: 330px;
+    } 
 }
 
+/* older mobile phones */
 @media (max-width: 400px) and (max-height: 670px) {
     body {
         font-size: 1rem;
     }
     header {
-        padding-bottom: 0.5rem;
-        padding-top: 0.5rem;
+        padding-top: 0rem;
     }
     h1 {
         font-size: 2rem;
-    }
-    #startButton {
-        margin: 1rem auto;
-    }
-    .navbuttons {
-        margin-top: 1rem;
-        min-width: 75px;
-        font-size: 1.5rem;
     }
     .question {
         font-size: 1.25rem;
@@ -483,12 +481,14 @@ h3 {
     .message {
         font-size: 1rem;
     }
-    .map {
+    .navbuttons {
+        min-width: 75px;
+    }
+    .map, .image {
         width: 100%;
         height: 200px;
     }
-    .image {
-        width: 100%;
-        height: 200px;
+    #startButton {
+        margin: 1rem auto;
     }
 }
