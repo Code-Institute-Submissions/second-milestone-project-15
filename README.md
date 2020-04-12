@@ -6,8 +6,8 @@ It builds on the first project's emphasis on HTML and CSS by introducing JavaScr
 allows the user to manipulate data to alter what is presented to them on-screen.
 I decided to create a "personality quiz"-style assessment, with the aim of working out which central Bristol venues (i.e. pubs and bars) meet the user's needs/preferences.
 It asks the user a series of 12 questions, then suggests three Bristol pubs or bars that match their answers. In addition, the site uses the Google Maps and Google Places APIs
-to retrieve data about the three suggested venues and presents that data on the results screen. This includes a Google Map centered on the venue's location and a Google Maps link, 
-the main Google photo of the venue, plus the address, phone number, website link and Google star rating of the venue.
+to retrieve data about the three suggested venues and presents that data on the results screen. This includes a Google Map, a Google photo, and place details such as the website URL
+and Google reviews star rating.
 
 The project uses JavaScript to achieve three aims: DOM manipulation to change the structure and styling of the page, creating the logic of the quiz to work out the three suggested
 venues based on the user's answers, and access to the Google APIs to get and present data. There are two JavaScript files in the project: "scripts.js" for the varibles and functions,
@@ -34,15 +34,16 @@ This includes documents detailing my thoughts on the strategy and scope planes o
 
 * The start page. Acts as a landing page and a brief description of purpose of the site with a call to action. The first question is shown when the button is clicked.
 * The 12 questions. One question is shown to the user at a time, and there are radio buttons for the user to select their answer. "Next" and "Previous" buttons are used to navigate
-the question.
+the questions.
 * Adjustable backgrounds. On some questions, selecting a certain answer changes the background image of the question.
 * 23 possible venues can be suggested to the user. All 23 can feature in the user's top three suggestions, depending on the answers provided.
 * The quiz functionality. Each venue has an object with properties that reflect each question. The user's answers to each question are also stored in an object. When the results
 are submited, the user's answers are compared to each venues' properties, and points are awarded or taken away based on these properties. These points are added to the venue's score
 value, and the top three scoring venues are presented to the user on the results page.
-* An alternate second question. There are two question 2s that can be shown, depending on the answer provided to question 1.
+* An alternate second question. There are two question 2s that can be shown, depending on the answer provided to the first question.
 * Input validation. The user cannot proceed if they have not selected an answer, instead they are presented with a warning message.
-* Google Maps and Google Places data. Using the Google APIs, the results page presents a Google Map, photo and place details for each of the top three scoring venues.
+* Google Maps and Google Places data. Using the Google APIs, the results page presents a Google Map centered on the venue's location and a Google Maps link, the main Google photo
+of the venue, plus the address, phone number, website link and Google star rating for each of the top three scoring venues.
 Each venue has a Google placeID value.
 * The back to start button. Located on the results page, this allows the user to retake the quiz while keeping their previous answers selected.
 
@@ -52,6 +53,7 @@ Each venue has a Google placeID value.
 * The option to mark a question as important or not important. This would adjust the points awarded or taken away for the answer, and lead to a greater range of possible results.
 * Improved navigation, allowing the user to select a specific question without having to go through slide by slide. There could be an indicator to show which questions have received
 answers.
+* Improvements to styling. A solution to improve image load time.
 * More data on the results page. This could be pulled from the Google APIs or additional APIs.
 * Additional questions and the process of adding new questions made simpler. The requirements for new questions are as follows:
 
