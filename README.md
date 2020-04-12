@@ -13,8 +13,8 @@ The project uses JavaScript to achieve three aims: DOM manipulation to change th
 venues based on the user's answers, and access to the Google APIs to get and present data. There are two JavaScript files in the project: "scripts.js" for the varibles and functions,
 and "venues.js" for the venue objects representing the venues the user can be suggested.
 
-The site is split into three main views: the start page, the question slides, and the results page. Only one question is presented at a time, and the site uses buttons to start the quiz,
-navigate through the questions, submit the user's answers, and return to the start. The site is responsive across different devices without any loss of core functionality.
+The site is split into three main views: the start page, the question slides, and the results page. Only one question is presented at a time, and the site uses buttons to start the
+quiz, navigate through the questions, submit the user's answers, and return to the start. The site is responsive across different devices without any loss of core functionality.
 
 
 ## UX
@@ -33,20 +33,34 @@ This includes documents detailing my thoughts on the strategy and scope planes o
 ### Existing Features
 
 * The start page. Acts as a landing page and a brief description of purpose of the site with a call to action. The first question is shown when the button is clicked.
-* The 12 questions. One question is shown to the user at a time, and there are radio buttons for the user to select their answer. "Next" and "Previous" buttons are used to navigate the question.
-* Dynamic backgrounds. On some questions, selecting a certain answer changes the background image of the question.
+* The 12 questions. One question is shown to the user at a time, and there are radio buttons for the user to select their answer. "Next" and "Previous" buttons are used to navigate
+the question.
+* Adjustable backgrounds. On some questions, selecting a certain answer changes the background image of the question.
 * 23 possible venues can be suggested to the user. All 23 can feature in the user's top three suggestions, depending on the answers provided.
-* The quiz functionality. Each venue has an object with properties that reflect each question. The user's answers to each question are also stored in an object. When the results are
-submited, the user's answers are compared to each venues' properties, and points are awarded or taken away based on these properties. These points are added to the venue's score value,
-and the top three scoring venues are presented to the user on the results page.
+* The quiz functionality. Each venue has an object with properties that reflect each question. The user's answers to each question are also stored in an object. When the results
+are submited, the user's answers are compared to each venues' properties, and points are awarded or taken away based on these properties. These points are added to the venue's score
+value, and the top three scoring venues are presented to the user on the results page.
 * An alternate second question. There are two question 2s that can be shown, depending on the answer provided to question 1.
 * Input validation. The user cannot proceed if they have not selected an answer, instead they are presented with a warning message.
 * Google Maps and Google Places data. Using the Google APIs, the results page presents a Google Map, photo and place details for each of the top three scoring venues.
+Each venue has a Google placeID value.
 * The back to start button. Located on the results page, this allows the user to retake the quiz while keeping their previous answers selected.
 
 ### Future Features
 
-* Lorem Ipsum
+* Additional venues. These must be added as venue objects to the venueList array, with values for all of the properties that the other venues have.
+* The option to mark a question as important or not important. This would adjust the points awarded or taken away for the answer, and lead to a greater range of possible results.
+* Improved navigation, allowing the user to select a specific question without having to go through slide by slide. There could be an indicator to show which questions have received
+answers.
+* More data on the results page. This could be pulled from the Google APIs or additional APIs.
+* Additional questions and the process of adding new questions made simpler. The requirements for new questions are as follows:
+
+  * Each venue object must receive a property and value that corresponds with the question.
+  * A specific submit result function, that updates the userResults object. This must be added to the submitUserResults function.
+  * A specific add score function, that updates the venue score based on the results submitted. This must be added to the calculateTotalScore function.
+  * The HTML structure of the question, matching previous questions. References to the previous total number of questions will need to be updated, this could be set to a variable.
+  * A background image and CSS to set it.
+  * Optional: additional background images and click events to set them.
 
 ## Technologies Used
 * [HTML5](https://www.w3.org/TR/2017/REC-html52-20171214/)
@@ -112,9 +126,13 @@ Images were sourced from:
 
 <https://www.piqsels.com/>
 
+The results page images are taken from the Google Places API, and are subject to change. An image credit is presented underneath the image that will update dynamically, in line with
+Google's attribution policy.
+
 ### Acknowledgements
 My design was partly inspired by this [guide](https://www.sitepoint.com/simple-javascript-quiz/), mostly for its use of slides to display the questions.
 
-I made frequent use of [Stack Overflow](https://stackoverflow.com/) and the Google Maps API [documentation](https://developers.google.com/maps/documentation) for help and advice.
+I made frequent use of [Stack Overflow](https://stackoverflow.com/) and the Google Maps API [documentation](https://developers.google.com/maps/documentation) for help and advice. 
+The code used to access the Google APIs is based on the advice of their documentation, with some changes made to suit my goals.
 
 To create the background gradient, text shadow, and box shadow effects, I used the following online tools: [Here](https://cssgradient.io/), [Here](https://html-css-js.com/css/generator/text-shadow/) and [Here](https://www.cssmatic.com/box-shadow).
