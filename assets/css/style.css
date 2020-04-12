@@ -184,6 +184,11 @@ h3 {
 .credit a, .details a {
     text-decoration: none;
     color: #2f4f4f;
+    transition: color 0.3s ease;
+}
+
+.credit a:hover, .details a:hover {
+    color: #fff;
 }
 
 .details ul {
